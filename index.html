@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>South Island 2027</title>
-<meta name="description" content="Brisbane and Melbourne to Queenstown, ten days of hiking, December 2026 to March 2027.">
+<meta name="description" content="Damo's bucks: ten nights on the South Island, 15 to 25 February 2027. Itinerary, stays, hikes and bookings.">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <style>
 @font-face{font-family:"Antonio";src:url("assets/fonts/Antonio-100-700.woff2") format("woff2");font-weight:100 700;font-display:swap}
@@ -153,6 +153,39 @@ a{color:inherit}
 .window__pair .open{display:inline-block;margin-top:6px}
 @media (max-width:520px){.window__pair{grid-template-columns:1fr}}
 .backdrop img{object-position:50% 78%}
+
+/* Planning hub. */
+.hero{min-height:70svh}
+.flightrow{display:grid;grid-template-columns:110px 1fr auto;gap:4px 16px;align-items:baseline}
+.flightrow__when{font-family:var(--font-display);font-size:22px;line-height:1;text-transform:uppercase;letter-spacing:.01em}
+.flightrow__what{font-size:15px}.flightrow__what b{font-weight:500}
+.flightrow__meta{font-size:13px;color:var(--ink-3)}
+@media (max-width:560px){.flightrow{grid-template-columns:1fr}.flightrow__meta{grid-row:auto}}
+#mode{margin-top:0}
+.days{list-style:none;margin:20px 0 0;padding:0;counter-reset:none}
+.day{padding:20px 0;border-top:1px solid var(--hairline)}
+.day:last-child{border-bottom:1px solid var(--hairline)}
+.day__head{display:flex;flex-wrap:wrap;gap:4px 14px;align-items:baseline}
+.day__n{font-size:12px;color:var(--ink-3)}
+.day__date{font-size:13px;color:var(--ink-2)}
+.day__sun{margin-left:auto;font-size:12px;color:var(--cn-sand)}
+.day__title{margin:6px 0 0;font-family:var(--font-display);font-weight:400;font-size:clamp(26px,6vw,34px);line-height:1;text-transform:uppercase;letter-spacing:.01em}
+.day__grid{display:grid;grid-template-columns:84px 1fr;gap:8px 16px;margin:14px 0 0}
+.day__grid dt{font-size:12px;color:var(--ink-3);padding-top:2px}
+.day__grid dd{margin:0;font-size:15px;color:var(--ink-2)}
+.day__grid dd b{color:var(--ink);font-weight:500}
+.day__grid dd .open{margin-left:6px}
+@media (max-width:520px){.day__grid{grid-template-columns:1fr;gap:2px}.day__grid dd{margin-bottom:8px}}
+.staygroup{margin-top:22px}
+.staygroup__head{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-family:var(--font-display);font-size:22px;text-transform:uppercase;letter-spacing:.01em}
+.staygroup__head .dim{font-family:var(--font-ui);font-size:12px;text-transform:none;color:var(--ink-3)}
+.staygroup .lines{margin-top:8px}
+.staygroup .lines li .open{display:inline-block;margin-top:6px}
+.tick{display:flex;gap:12px;align-items:flex-start;cursor:pointer}
+.tick input{accent-color:var(--cn-sand);width:18px;height:18px;margin-top:3px;flex:none}
+.tick b{font-weight:500;display:block}
+.tick input:checked + span{opacity:.5;text-decoration:line-through}
+.hero__meta{color:var(--cn-sand)}
 </style>
 
 </head>
@@ -162,132 +195,120 @@ a{color:inherit}
 <main class="page">
   <header class="hero">
     <div class="hero__text">
-      <p class="eyebrow">For Jacob and Damo · late February</p>
+      <p class="eyebrow">Damo's bucks · booked</p>
       <h1 class="hero__island">South Island</h1>
-      <p class="hero__project">Mon 22 February to Fri 5 March 2027. Eleven days hiking, into Queenstown, home from Queenstown or Christchurch.</p>
+      <p class="hero__project">Mon 15 to Thu 25 February 2027. Ten nights on a loop out of Queenstown: lakes, glaciers, fiords, a racetrack and a lot of golden hour.</p>
+      <p class="hero__meta" id="countdown"></p>
     </div>
   </header>
 
   <div class="sections">
-    <section class="glass panel best" aria-label="Best flights for both of us">
+
+    <section class="glass panel">
+      <p class="eyebrow">Flights · booked on Velocity points</p>
+      <h2 class="display">In and out of Queenstown</h2>
+      <ul class="lines">
+        <li class="flightrow"><span class="flightrow__when">Mon 15 Feb</span><span class="flightrow__what"><b>VA 119</b> Brisbane 10:10am to Queenstown 4:40pm</span><span class="flightrow__meta">Non-stop · 3h 30m</span></li>
+        <li class="flightrow"><span class="flightrow__when">Thu 25 Feb</span><span class="flightrow__what"><b>VA 120</b> Queenstown 5:35pm to Brisbane 6:20pm</span><span class="flightrow__meta">Non-stop · 3h 45m</span></li>
+      </ul>
+      <p class="hint">Damo, check you're on the same two flights. Economy reward fares don't include food; grab something at the airport.</p>
+    </section>
+
+    <section class="glass panel">
+      <p class="eyebrow">How we travel</p>
+      <h2 class="display">Light first, crowds never</h2>
+      <p class="lede">Two photographers with taste, not tourists. Every day is built around one great shot at either end of the day, somewhere to sleep that's worth filming, good food without the fuss, and one thing that's just fun.</p>
+      <ul class="lines">
+        <li>Be on the trail before the coaches and stay out after they leave. Golden hour runs about 8 to 9pm in February.</li>
+        <li>Stays are design-led, quiet and always have two bedrooms or two separate beds. No chains, no backpacker energy.</li>
+        <li>Nothing cheesy, no bungy. Motorsport, a jet boat into a national park, a lake sauna, padel, cedar hot pools.</li>
+        <li>Fiordland gets the flexible days. If the forecast turns, the Milford Road day swaps with a Te Anau day.</li>
+      </ul>
+    </section>
+
+    <section class="glass panel">
       <div class="best__head">
         <div>
-          <p class="eyebrow">Best February flights for both of us</p>
-          <h2 class="display">The pick</h2>
+          <p class="eyebrow">The loop · day by day</p>
+          <h2 class="display">Ten nights</h2>
         </div>
-        <p class="best__total" id="best-total"></p>
+        <div class="filter" id="mode"><button aria-pressed="true" data-v="stay">Design stays</button><button aria-pressed="false" data-v="rv">Luxury RV</button></div>
       </div>
-      <p class="best__basis">Economy, per person, in AUD, non-stop both ways. We scanned every February departure date on Google Flights on 11 Oct 2026, so prices will move.</p>
-      <div class="filter" id="best-tabs"></div>
-      <div class="pair" id="best-pair"></div>
-      <p class="best__note" id="best-note"></p>
+      <p class="text" id="mode-note"></p>
+      <p class="hint">Queenstown › Glenorchy › Lake Hāwea › Ben Ohau (Mount Cook) › Bannockburn › Te Anau › Queenstown. Sunrise and sunset are Queenstown times; Mount Cook runs a few minutes earlier, Fiordland a few later.</p>
+      <a class="open" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/Queenstown+Airport/Glenorchy,+New+Zealand/Lake+Hawea,+New+Zealand/Ben+Ohau,+New+Zealand/Aoraki+Mount+Cook+Village/Bannockburn,+New+Zealand/Te+Anau,+New+Zealand/Milford+Sound/Queenstown+Airport">Open the route in Google Maps ↗</a>
+      <ol class="days" id="days"></ol>
     </section>
 
     <section class="glass panel">
-      <p class="eyebrow">What the February scan showed</p>
-      <h2 class="display">Damo's day matters, Jacob's doesn't</h2>
-      <ul class="lines">
-        <li><strong>Jacob:</strong> Virgin non-stop from Brisbane sits at $756 to $791 return on every February date. Jetstar via Auckland or Sydney saves up to about $90 but means an overnight or a long connection. Not worth it.</li>
-        <li><strong>Damo:</strong> Jetstar's 2:50pm non-stop from Melbourne is the cheap one, $482 to $535 return, and in our scan it only showed up when he flew out on a Sunday, Monday, Wednesday or Friday and came home on a Wednesday, Friday or Sunday. Tuesday, Thursday and Saturday departures pushed him back onto Virgin at $630 plus.</li>
-        <li><strong>Cheapest late February trip:</strong> Mon 22 Feb to Fri 5 Mar, $1,261 for both, all non-stop. Mid February (Sun 14 to Wed 24) is $1,270, so it's really your call on timing.</li>
-        <li>Jetstar fares don't include a checked bag, so add about $100 to $200 return for Damo's pack.</li>
-      </ul>
+      <p class="eyebrow">Where we sleep</p>
+      <h2 class="display">The stays</h2>
+      <p class="text">Every pick has two bedrooms or two separate beds, unless flagged. Airbnb doesn't show nightly prices until you enter dates, so the price bands are for comparable two bedroom homes in that area in February.</p>
+      <div id="stays"></div>
     </section>
 
     <section class="glass panel">
-      <p class="eyebrow">The Christchurch option</p>
-      <h2 class="display">Finish at Mount Cook</h2>
-      <p class="lede">Fly into Queenstown and home from Christchurch, and the last few days become a road trip: Wānaka, Lake Pukaki, Aoraki/Mount Cook, then over to Christchurch. You don't double back, and it's about $100 cheaper for the two of you.</p>
+      <p class="eyebrow">The alternative</p>
+      <h2 class="display">Luxury RV</h2>
+      <p class="lede">A motorhome puts you on the lake edge for first light without a check-in time in sight. It's the better camera, the worse bedroom.</p>
       <ul class="lines">
-        <li class="plan">
-          <span class="plan__name">Home from Christchurch</span>
-          <span class="plan__sum">$1,314<small>for both</small></span>
-          <span class="plan__title">Into Queenstown on Virgin, home on Air New Zealand</span>
-          <p class="plan__detail">Jacob $431 out and $263 home, Damo $370 out and $250 home, all non-stop. Two one way tickets each.</p>
-        </li>
-        <li class="plan">
-          <span class="plan__name">Back to Queenstown</span>
-          <span class="plan__sum">$1,410<small>for both</small></span>
-          <span class="plan__title">Virgin return, both of you</span>
-          <p class="plan__detail">Simpler, one ticket each, and all of it can go on Velocity points. Mount Cook is still a day trip, about three hours each way.</p>
-        </li>
-      </ul>
-      <ul class="lines">
-        <li>The cheapest Christchurch flights leave around 6:00am, so stay near the airport on the last night. Later ones (Qantas to Brisbane at 3:55pm, Jetstar to Melbourne at 9:15am) bring the total to about $1,386.</li>
-        <li>Hire companies usually charge a one way fee to drop a Queenstown car in Christchurch. Price it in before you book; it can wipe out the flight saving.</li>
-        <li>The Mueller Hut overnight at Mount Cook fits this route perfectly. It needs a DOC booking.</li>
-      </ul>
-    </section>
-
-    <section class="glass panel">
-      <p class="eyebrow">For reference</p>
-      <h2 class="display">Other dates we checked</h2>
-      <p class="text">Ten days each, return. Cheapest non-stop for each of you, plus what it would cost going via Auckland or Sydney if that's cheaper.</p>
-      <div class="filters">
-        <div class="filter" data-f="m"><span class="label">When</span>
-          <button aria-pressed="true" data-v="all">All</button><button aria-pressed="false" data-v="12">December</button><button aria-pressed="false" data-v="01">January</button><button aria-pressed="false" data-v="02">February</button></div>
-        <div class="filter" data-f="sort"><span class="label">Sort</span>
-          <button aria-pressed="true" data-v="date">By date</button><button aria-pressed="false" data-v="total">Cheapest</button></div>
-      </div>
-      <ul class="lines" id="rows"></ul>
-    </section>
-
-    <section class="glass panel">
-      <p class="eyebrow">Velocity points</p>
-      <h2 class="display">Worth using here</h2>
-      <p class="figure">17.9k<small>points one way, economy</small></p>
-      <p class="text">Virgin flies non-stop to Queenstown from both Brisbane and Melbourne, so it's a straight Velocity reward seat, no partner airline needed. Point Hacks puts it at about 17,900 points one way in economy (35,500 in business), plus taxes. That's roughly 35,800 return each.</p>
-      <ul class="lines">
-        <li>Against cash fares of $600 to $900 return, that's about 1.7 to 2.5 cents a point, which is a solid use of Velocity.</li>
-        <li>Business is about 71,000 return each and makes a three hour flight very comfortable, if the points are spare.</li>
-        <li>Reward seats are limited, especially late January. Search the exact dates in the Velocity app or on the Virgin site; seats.aero also tracks Velocity availability.</li>
-        <li>The points figure is from Point Hacks, not a live search, so confirm the price and taxes before you book.</li>
+        <li><strong>The van:</strong> a maui Beach (7.55 m) or Cascade (6.74 m). Both are 4 berths with two separate double beds, so you get one each. Skip the 2 berth Ultima; it's one shared double. maui Elite guarantees a van under a year old for about NZ$55 a day more.</li>
+        <li><strong>Pick up:</strong> maui and Britz share a depot at 9 Purple Ash Ave, Frankton, about 3 km from the airport. It closes at 4:30pm and you land at 4:40pm, so night one is a stay and you collect the van at 8am Tuesday. Drop it back by early afternoon on the 25th.</li>
+        <li><strong>Cost:</strong> maui doesn't publish New Zealand rates. Wilderness quotes NZ$650 to $750 a day for February, so budget about NZ$6,000 to $7,000 for nine days before insurance, fuel and sites. That's roughly the same as the stays. Wilderness itself only operates from Auckland and Christchurch, so it doesn't suit a Queenstown loop.</li>
+        <li><strong>Rules:</strong> since 7 June 2026 a vehicle needs a green self-containment warrant, with a fixed toilet, to use self-contained-only sites. Rental vans should already comply; check the card is in the window.</li>
+        <li><strong>The sites:</strong> Kinloch DOC campsite at the head of Lake Wakatipu (book ahead), Glendhu Bay on Lake Wānaka (book early), The Pines on the Lake Pukaki shore (free, self-contained only, no bookings), and Cascade Creek DOC campsite on the Milford Road (must be booked online), which puts you an hour from Milford before the buses.</li>
+        <li><strong>The smart version:</strong> stays everywhere except Pukaki and the Milford Road, where sleeping on the water is the whole point. That's two nights in a van, or just the right stays.</li>
       </ul>
       <div class="actions">
-        <a class="action action--quiet" target="_blank" rel="noopener" href="https://experience.velocityfrequentflyer.com/">Velocity ↗</a>
-        <a class="action action--quiet" target="_blank" rel="noopener" href="https://seats.aero">seats.aero ↗</a>
+        <a class="action action--quiet" target="_blank" rel="noopener" href="https://www.maui-rentals.com/nz/en">maui ↗</a>
+        <a class="action action--quiet" target="_blank" rel="noopener" href="https://www.linz.govt.nz/node/5835">The Pines, Pukaki ↗</a>
+        <a class="action action--quiet" target="_blank" rel="noopener" href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/fiordland/places/fiordland-national-park/things-to-do/campsites/cascade-creek-campsite/">Cascade Creek ↗</a>
       </div>
     </section>
 
     <section class="glass panel">
-      <p class="eyebrow">The hiking</p>
-      <h2 class="display">What you can actually walk</h2>
+      <p class="eyebrow">On foot</p>
+      <h2 class="display">The hikes</h2>
+      <p class="text">Ranked for how they look on camera against how many people are on them. DOC figures where we have them.</p>
+      <ul class="lines" id="hikes"></ul>
+    </section>
+
+    <section class="glass panel">
+      <p class="eyebrow">The fun stuff</p>
+      <h2 class="display">Speed, racquets, hot water</h2>
+      <div id="fun"></div>
+    </section>
+
+    <section class="glass panel">
+      <p class="eyebrow">For the cameras</p>
+      <h2 class="display">Shooting notes</h2>
       <ul class="lines">
-        <li><strong>The Great Walks are mostly booked.</strong> The Milford Track sold out in 34 minutes when 2026/27 bookings opened in May. Routeburn and Kepler huts (NZ$132 a night for non-residents) were around 91 to 95% full last peak season, so expect them full in January and watch the DOC site for cancellations. December and late February give you a better shot.</li>
-        <li><strong>No booking needed:</strong> Roys Peak and Isthmus Peak near Wānaka (16 km, 5 to 7 hours, 1,200 m of climbing), Ben Lomond above Queenstown (6 to 8 hours, or less from the gondola), Rob Roy Glacier (3 to 4 hours), Key Summit on the Milford Road (about 3 hours), and Gertrude Saddle on a dry day (expert route).</li>
-        <li><strong>Mueller Hut at Mount Cook needs a booking</strong> from 11 November to 30 April (NZ$55 a night, no walk ins). Worth trying for, as it's one of the best overnights in the country.</li>
-        <li><strong>Base in Queenstown and hire a car.</strong> Wānaka is about an hour away, Te Anau and the Milford Road about two, Mount Cook about three.</li>
-        <li>Fiordland can rain heavily in any month, and the sandflies are always there. Pack for both.</li>
+        <li><strong>Full moon mid trip.</strong> It's full around 20 to 21 Feb (there's a penumbral lunar eclipse on the 20th), which is your Mount Cook stretch. That rules out Milky Way shots in the Dark Sky Reserve but makes moonlit glaciers and Aoraki very doable. Plan night shoots around moonrise rather than darkness.</li>
+        <li><strong>Light:</strong> sunrise moves from about 7:01am to 7:15am and sunset from about 8:56pm to 8:40pm over the trip. Sun rises east south east and sets west south west, so sunset lights Aoraki and the Pukaki side head on. Fiordland valleys lose direct sun early.</li>
+        <li><strong>Drones need a DOC permit</strong> on any conservation land or water, including all three national parks on the route. Green zones are approved online for NZ$180 plus GST and last a year; orange zones start at NZ$2,450 plus GST and are assessed case by case. Check the zone map now and apply early.</li>
+        <li><strong>Airspace:</strong> the Queenstown control zone covers the whole Whakatipu Basin, so no casual flying around town or the Crown Range lookout. Stay under 120 m, in line of sight, and at least 4 km from aerodromes (Wānaka, Glenorchy and the Pukaki strip all count). Queenstown Lakes council isn't approving flights over its reserves without a Part 102 certificate.</li>
+        <li>The cleanest legal drone spots are private land with the owner's say so, so ask your hosts. A trail easement over farmland (Isthmus Peak) gives walking access only, not drone permission.</li>
       </ul>
       <div class="actions">
-        <a class="action action--quiet" target="_blank" rel="noopener" href="https://www.doc.govt.nz/parks-and-recreation/things-to-do/walking-and-tramping/great-walks/">DOC Great Walks ↗</a>
-        <a class="action action--quiet" target="_blank" rel="noopener" href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/canterbury/places/aoraki-mount-cook-national-park/things-to-do/huts/mueller-hut/">Mueller Hut ↗</a>
-        <a class="action action--quiet" target="_blank" rel="noopener" href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/otago/places/wanaka-area/things-to-do/roys-peak-track/">Roys Peak ↗</a>
+        <a class="action action--quiet" target="_blank" rel="noopener" href="https://www.doc.govt.nz/get-involved/apply-for-permits/all-permissions/drone-use-on-conservation-land/recreational-drone-use/">DOC drone permits ↗</a>
+        <a class="action action--quiet" target="_blank" rel="noopener" href="https://www.airshare.co.nz">AirShare ↗</a>
       </div>
     </section>
 
     <section class="glass panel">
-      <p class="eyebrow">Your own dates</p>
-      <h2 class="display">Try another day</h2>
-      <div class="fields">
-        <label class="field"><span class="label">From</span>
-          <select id="b-from"><option value="BNE">Brisbane</option><option value="MEL">Melbourne</option></select></label>
-        <label class="field"><span class="label">To</span>
-          <select id="b-to"><option value="ZQN">Queenstown</option><option value="CHC">Christchurch</option></select></label>
-        <label class="field"><span class="label">Leave</span><input type="date" id="b-dep" value="2027-02-22" min="2026-10-12"></label>
-        <label class="field"><span class="label">Nights</span><input type="number" id="b-n" value="10" min="3" max="30" inputmode="numeric"></label>
-        <label class="check"><input type="checkbox" id="b-ns" checked> Non-stop only</label>
-      </div>
-      <a class="action" id="b-go" target="_blank" rel="noopener">Search Google Flights</a>
-      <p class="hint" id="b-note"></p>
+      <p class="eyebrow">Do these first</p>
+      <h2 class="display">Booking list</h2>
+      <p class="text">In order of what sells out first. Ticks save on your own phone only.</p>
+      <ul class="lines checklist" id="todo"></ul>
     </section>
 
     <section class="glass panel">
       <p class="eyebrow">Worth knowing</p>
       <ul class="lines">
-        <li>Prices are Google Flights' lowest return fare on that route and dates, per person in economy. A starting price, not a quote.</li>
-        <li>The cheapest fares on Virgin, Qantas, Air New Zealand and Jetstar often leave out a checked bag. Check the fare type, and budget for one if you're bringing poles and a pack.</li>
-        <li>Christchurch is about $570 to $620 return from either city, but adds a long drive to Queenstown. Only worth it if Mount Cook or Arthur's Pass is the plan.</li>
+        <li>Anything marked "about" or "check" came from a reseller or an undated page, not the operator's current price. Confirm before you book.</li>
+        <li>NZ's first Michelin Guide landed in July 2026, so the starred tables (Rata, Sherwood, Kika, Essence) will be harder to get than usual.</li>
+        <li>Milford Road (SH94) closes for slips and rockfall. Check NZTA Journeys the morning you go.</li>
+        <li>Gertrude Saddle and Mueller Hut are alpine routes. Don't go in rain, snow or high wind, register intentions, and carry a personal locator beacon.</li>
       </ul>
     </section>
 
@@ -296,86 +317,164 @@ a{color:inherit}
 </main>
 
 <script>
-const gf=(from,to,dep,ret,ns)=>"https://www.google.com/travel/flights?q="+encodeURIComponent(`${ns?"Nonstop flights":"Flights"} from ${from} to ${to} on ${dep} through ${ret}`)+"&curr=AUD&hl=en-AU&gl=AU";
-const addDays=(iso,n)=>{const d=new Date(iso+"T00:00:00Z");d.setUTCDate(d.getUTCDate()+n);return d.toISOString().slice(0,10)};
-const fmt=iso=>new Date(iso+"T00:00:00Z").toLocaleDateString("en-AU",{weekday:"short",day:"numeric",month:"short",timeZone:"UTC"});
+// Countdown to wheels up.
+(()=>{const d=Math.ceil((new Date("2027-02-15T10:10:00+10:00")-new Date())/864e5);
+ document.getElementById("countdown").textContent=d>0?`${d} days to go. VA 119 leaves Brisbane at 10:10am.`:"We're here.";})();
 
-// Each window: best non-stop for each, plus the cheapest fare of any kind.
-const W=[
- {dep:"2026-12-01",j:{p:928,a:"Virgin Australia",t:"10:10am"},d:{p:734,a:"Qantas",t:"6:40am"},jc:{p:718,a:"Jetstar via Auckland"},dc:{p:721,a:"Air NZ via Auckland"}},
- {dep:"2026-12-05",j:{p:756,a:"Virgin Australia",t:"12:05pm"},d:{p:828,a:"Qantas",t:"7:20am"},jc:{p:739,a:"Air NZ via Auckland"},dc:{p:727,a:"Air NZ via Auckland"}},
- {dep:"2026-12-08",j:{p:888,a:"Virgin Australia",t:"10:10am"},d:{p:634,a:"Air New Zealand",t:"9:10am"},jc:{p:734,a:"Jetstar via Auckland"},dc:{p:616,a:"Virgin via Sydney"}},
- {dep:"2027-01-16",j:{p:782,a:"Virgin Australia",t:"10:10am"},d:{p:617,a:"Jetstar",t:"2:50pm"},jc:{p:731,a:"Jetstar via Auckland"},dc:null},
- {dep:"2027-01-19",j:{p:798,a:"Virgin Australia",t:"10:10am"},d:{p:598,a:"Virgin Australia",t:"8:00am"},jc:{p:718,a:"Jetstar via Auckland"},dc:null},
- {dep:"2027-01-23",j:{p:768,a:"Virgin Australia",t:"10:10am"},d:{p:606,a:"Jetstar",t:"2:50pm"},jc:{p:729,a:"Jetstar via Auckland"},dc:null},
- {dep:"2027-01-26",j:{p:756,a:"Virgin Australia",t:"10:10am"},d:{p:595,a:"Virgin Australia",t:"8:00am"},jc:{p:728,a:"Air NZ via Christchurch"},dc:null},
- {dep:"2027-02-09",j:{p:791,a:"Virgin Australia",t:"10:10am"},d:{p:658,a:"Virgin Australia",t:"8:00am"},jc:{p:701,a:"Jetstar via Sydney"},dc:{p:603,a:"Jetstar via Sydney"}},
- {dep:"2027-02-14",j:{p:768,a:"Virgin Australia",t:"10:10am"},d:{p:502,a:"Jetstar",t:"2:50pm"},jc:{p:706,a:"Jetstar via Sydney"},dc:null},
- {dep:"2027-02-16",j:{p:756,a:"Virgin Australia",t:"10:10am"},d:{p:669,a:"Qantas",t:"6:40am"},jc:{p:701,a:"Jetstar via Sydney"},dc:{p:632,a:"Virgin via Sydney"}},
- {dep:"2027-02-22",ret:"2027-03-05",j:{p:779,a:"Virgin Australia",t:"10:10am"},d:{p:482,a:"Jetstar",t:"2:50pm"},jc:{p:712,a:"Jetstar via Auckland"},dc:null},
- {dep:"2027-02-23",j:{p:779,a:"Virgin Australia",t:"10:10am"},d:{p:631,a:"Virgin Australia",t:"8:00am"},jc:{p:689,a:"Jetstar via Sydney"},dc:{p:585,a:"Jetstar via Auckland"}}
-].map(w=>({...w,ret:w.ret||addDays(w.dep,10),total:w.j.p+w.d.p}));
+const A=(href,label)=>`<a class="open" target="_blank" rel="noopener" href="${href}">${label} ↗</a>`;
 
-// The pick widget: the locked dates, two ways home.
-const ow=(from,to,dep)=>"https://www.google.com/travel/flights?q="+encodeURIComponent(`One way flights from ${from} to ${to} on ${dep}`)+"&curr=AUD&hl=en-AU&gl=AU";
-const PTS="Or about 35,800 Velocity points return, plus taxes";
-const BEST=[
- {tab:"Best: 22 Feb to 5 Mar",total:1261,note:"Mon 22 Feb to Fri 5 Mar, eleven days. Leaving a day earlier than Tuesday puts Damo on Jetstar's non-stop for $482, about $150 less than Virgin. Jacob's Virgin fare is the same either day.",
-  j:{p:779,sub:PTS,what:"Virgin Australia non-stop, both ways",how:"Leaves Brisbane 10:10am · about 3.5 hours",links:[["Open flight",gf("BNE","ZQN","2027-02-22","2027-03-05",true)]]},
-  d:{p:482,sub:"Jetstar, so bags are extra",what:"Jetstar non-stop, both ways",how:"Leaves Melbourne 2:50pm · about 3 hours",links:[["Open flight",gf("MEL","ZQN","2027-02-22","2027-03-05",true)]]}},
- {tab:"Mid Feb",total:1270,note:"Sun 14 to Wed 24 Feb, ten days. Practically the same price as late February, and the same mix of airlines.",
-  j:{p:768,sub:PTS,what:"Virgin Australia non-stop, both ways",how:"Leaves Brisbane 10:10am · about 3.5 hours",links:[["Open flight",gf("BNE","ZQN","2027-02-14","2027-02-24",true)]]},
-  d:{p:502,sub:"Jetstar, so bags are extra",what:"Jetstar non-stop, both ways",how:"Leaves Melbourne 2:50pm · about 3 hours",links:[["Open flight",gf("MEL","ZQN","2027-02-14","2027-02-24",true)]]}},
- {tab:"All on points",total:1410,note:"Tue 23 Feb to Fri 5 Mar. Both on Virgin, so both can go on Velocity points instead of cash.",
-  j:{p:779,sub:PTS,what:"Virgin Australia non-stop, both ways",how:"Leaves Brisbane 10:10am · about 3.5 hours",links:[["Open flight",gf("BNE","ZQN","2027-02-23","2027-03-05",true)]]},
-  d:{p:631,sub:PTS,what:"Virgin Australia non-stop, both ways",how:"Leaves Melbourne 8:00am · about 3 hours",links:[["Open flight",gf("MEL","ZQN","2027-02-23","2027-03-05",true)]]}},
- {tab:"Home from Christchurch",total:1314,note:"Into Queenstown Tue 23 Feb, home from Christchurch Fri 5 Mar. Two one way tickets each. The home flights leave around 6am.",
-  j:{p:694,sub:"$431 out on Virgin, $263 home on Air NZ",what:"Brisbane to Queenstown, Christchurch to Brisbane",how:"Home flight leaves 6:05am",links:[["Out",ow("BNE","ZQN","2027-02-23")],["Home",ow("CHC","BNE","2027-03-05")]]},
-  d:{p:620,sub:"$370 out on Virgin, $250 home on Air NZ",what:"Melbourne to Queenstown, Christchurch to Melbourne",how:"Home flight leaves 6:00am",links:[["Out",ow("MEL","ZQN","2027-02-23")],["Home",ow("CHC","MEL","2027-03-05")]]}}
+// The stays, keyed so days can point at them.
+const STAY={
+ hayes:{area:"Lake Hayes",name:"Private Spa, Remarkables Views",beds:"2 bedrooms, 2 queens",why:"On Threepwood Farm, ten minutes from the airport, walks straight onto the Lake Hayes trail. Spa on the deck.",url:"https://www.airbnb.co.nz/rooms/997952564882775414"},
+ arrow:{area:"Arrow Junction",name:"Architectural home at Arrow",beds:"2 bedrooms: king, plus a bunk room",flag:"Second room is a bunk. Toss for it.",why:"Small house by award-winning architect Anna-Marie Chin, dug into exposed schist on three acres, with high angled glazing and the Queenstown Trail at the door.",url:"https://www.airbnb.co.nz/rooms/40260704"},
+ headwaters:{area:"Glenorchy",name:"The Headwaters Eco Lodge, Two Bedroom Chalet",beds:"2 bedrooms, split singles available, 2 ensuites",why:"Award-winning sustainable build at the head of Lake Wakatipu (it used to be Camp Glenorchy). Walk to the lagoon for sunrise.",url:"https://theheadwatersecolodge.com/accommodation"},
+ fox:{area:"Glenorchy",name:"Fox Lodge",beds:"2 bedrooms: queen and single",why:"Design-led alpine cabin with a wood-fired hot tub facing the mountains.",url:"https://www.airbnb.co.nz/rooms/993200449672739766"},
+ hawea:{area:"Lake Hāwea",name:"Pure Lakefront, Corner Peak Cottage",beds:"2 bedrooms, 2 queens",why:"Architecturally designed 1960s cottage with nothing between you and the lake. The pick of the trip for golden hour on the water.",url:"https://www.airbnb.co.nz/rooms/1039693823243955736"},
+ kowhai:{area:"Dublin Bay, Wānaka",name:"Kowhai Cottage",beds:"2 bedrooms, 2 bathrooms: king and 2 singles",why:"New build in schist and bluestone, looking over Dublin Bay. Quieter than town.",url:"https://www.airbnb.co.nz/rooms/997342510867475347"},
+ antlers:{area:"Ben Ohau, near Twizel",name:"Antlers Rest",beds:"2 bedrooms, 2.5 bathrooms",why:"Won the Luxury Holiday Home Award 2025. Uninterrupted views of the Ben Ohau Range; about 50 minutes to Mount Cook village.",url:"https://www.airbnb.co.nz/rooms/43947060"},
+ woodley:{area:"Ben Ohau, near Twizel",name:"42 Woodley",beds:"2 queen bedrooms",why:"Modern architecturally designed house on the same high country road. Owners live on site.",url:"https://www.airbnb.co.nz/rooms/35975390"},
+ skyscape:{area:"Near Twizel",name:"SkyScape",beds:"Each cabin sleeps 2, so book two",flag:"One bed per cabin.",why:"Off-grid cabins with glass roofs on a high country station. Wasted on a full moon, brilliant for the light.",url:"https://skyscape.co.nz/"},
+ kawarau:{area:"Felton Road, Bannockburn",name:"Kawarau Cottage",beds:"Queen and 2 singles",why:"On the vineyard with river and mountain views, a few minutes from Highlands and the padel courts.",url:"https://www.airbnb.co.nz/rooms/8309608"},
+ purepods:{area:"Near Cromwell",name:"PurePods Tāima and Haurapa",beds:"One king per pod, so book both",flag:"One bed per pod, from about NZ$395 each.",why:"All-glass pods on a ridge. Gravel road, then a 300 m walk in.",url:"https://www.purepods.com/"},
+ blacks:{area:"Lake Te Anau",name:"Black's Hut",beds:"2 bedrooms, 2 bathrooms",why:"Built in 2022 on the lakefront, adults-focused, with a hot tub. Rated 5.0.",url:"https://www.airbnb.co.nz/rooms/52614454"},
+ kahikatea:{area:"Manapouri",name:"Kahikatea House",beds:"2 bedrooms, 2 bathrooms",why:"Modern house beside the lake with big glazing. Closest base for Doubtful Sound.",url:"https://www.airbnb.co.nz/rooms/1270521875544691386"}
+};
+const BANDS=[
+ ["Queenstown and Arrowtown","About NZ$350 to $690 a night",["hayes","arrow"]],
+ ["Glenorchy","About NZ$395 to $1,180",["headwaters","fox"]],
+ ["Wānaka and Hāwea","About NZ$345 to $550",["hawea","kowhai"]],
+ ["Mount Cook, Twizel, Ben Ohau","About NZ$340 to $775",["antlers","woodley","skyscape"]],
+ ["Cromwell and Bannockburn","About NZ$310 to $575",["kawarau","purepods"]],
+ ["Te Anau and Manapouri","About NZ$330 to $860",["blacks","kahikatea"]]
 ];
-const tabs=document.getElementById("best-tabs");
-tabs.innerHTML=BEST.map((b,k)=>`<button aria-pressed="${k===0}" data-k="${k}">${b.tab}</button>`).join("");
-function showBest(k){
-  const b=BEST[k];
-  tabs.querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x.dataset.k==k));
-  document.getElementById("best-total").innerHTML=`$${b.total.toLocaleString()}<small>for both</small>`;
-  const pick=(who,city,p)=>`<div class="pick"><div class="pick__who">${who} · from ${city}</div><div class="pick__price">$${p.p.toLocaleString()}</div><div class="pick__bag">${p.sub}</div><div class="pick__what">${p.what}</div><div class="pick__how">${p.how}</div>${p.links.map(([t,u])=>`<a class="open" target="_blank" rel="noopener" href="${u}">${t} ↗</a>`).join(" &nbsp; ")}</div>`;
-  document.getElementById("best-pair").innerHTML=pick("Jacob","Brisbane",b.j)+pick("Damo","Melbourne",b.d);
-  document.getElementById("best-note").textContent=b.note;
-}
-tabs.addEventListener("click",e=>{const t=e.target.closest("button");if(t)showBest(+t.dataset.k)});
-showBest(0);
+document.getElementById("stays").innerHTML=BANDS.map(([area,band,keys])=>`<div class="staygroup"><div class="staygroup__head"><span>${area}</span><span class="dim">${band}</span></div><ul class="lines">${keys.map(k=>{const s=STAY[k];return `<li><div class="flight__line"><b>${s.name}</b></div><div class="flight__sub">${s.area} · ${s.beds}</div><div class="text">${s.why}</div>${s.flag?`<div class="flight__note">${s.flag}</div>`:""}${A(s.url,"View")}</li>`}).join("")}</ul></div>`).join("");
 
-// The full list.
-const F={m:"all",sort:"date"};
-document.querySelectorAll(".filters .filter").forEach(g=>g.addEventListener("click",e=>{
-  const b=e.target.closest("button");if(!b)return;
-  g.querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x===b));
-  F[g.dataset.f]=b.dataset.v;render();
-}));
-function render(){
-  const rows=W.filter(w=>F.m==="all"||w.dep.slice(5,7)===F.m).slice().sort((a,b)=>F.sort==="total"?a.total-b.total:a.dep.localeCompare(b.dep));
-  const cheap=(c,p)=>c&&c.p<p.p?`<div class="flight__note">Or $${c.p} on ${c.a}</div>`:"";
-  document.getElementById("rows").innerHTML=rows.map(w=>`<li class="window">
-    <div class="window__head"><span class="window__dates">${fmt(w.dep)} to ${fmt(w.ret)}</span><span class="window__total">$${w.total.toLocaleString()}<small>both</small></span></div>
-    <div class="window__pair">
-      <div><div class="flight__sub">Jacob · ${w.j.a}</div><div class="flight__line"><b>$${w.j.p}</b> non-stop, ${w.j.t}</div>${cheap(w.jc,w.j)}<a class="open" target="_blank" rel="noopener" href="${gf("BNE","ZQN",w.dep,w.ret,true)}">Open ↗</a></div>
-      <div><div class="flight__sub">Damo · ${w.d.a}</div><div class="flight__line"><b>$${w.d.p}</b> non-stop, ${w.d.t}</div>${cheap(w.dc,w.d)}<a class="open" target="_blank" rel="noopener" href="${gf("MEL","ZQN",w.dep,w.ret,true)}">Open ↗</a></div>
-    </div></li>`).join("");
-}
-render();
+// Day by day. sleep: stay key; rv: what the van night is.
+const DAYS=[
+ {d:"Mon 15 Feb",t:"Land, sauna, lake",sun:"7:01am · 8:56pm",drive:"Airport to Lake Hayes, 10 min",
+  shot:"Lake Hayes from the trail at golden hour, Remarkables lit up behind it.",
+  doo:"Private Watershed floating sauna at sunset on Queenstown's wharf (NZ$299 for up to six), jumping in the lake between rounds. Cocktail at Little Blackwood on Steamer Wharf after.",
+  eat:"Rata, Josh Emett's Michelin starred bistro. Relaxed, not stuffy.",sleep:"hayes",rv:"Same stay. The van depot shuts at 4:30pm, before you land."},
+ {d:"Tue 16 Feb",t:"Up the Dart",sun:"7:02am · 8:55pm",drive:"Queenstown to Glenorchy, 45 min, the best lake road in the country",
+  shot:"Glenorchy Lagoon walkway at sunset, flat water and mountain reflections. Stop at Bennetts Bluff on the drive in.",
+  doo:"Dart River Wilderness Jet, a half day up a braided river into Mount Aspiring National Park. The good-taste jet boat, nothing like the Shotover. About NZ$299; check.",
+  eat:"Something simple in Glenorchy, then the lodge's fire.",sleep:"headwaters",rv:"Collect the van at 8am, then Kinloch DOC campsite across the lake (book ahead; the gravel road can flood)."},
+ {d:"Wed 17 Feb",t:"Over the Crown Range",sun:"7:04am · 8:53pm",drive:"Glenorchy to Lake Hāwea via the Crown Range, about 2 hours",
+  shot:"Sunrise at Glenorchy Lagoon before you leave. Evening on the Hāwea shore right outside the cottage.",
+  doo:"Stop in Cardrona on the way. If you're keen, the Cardrona summer bike park (lift plus full suspension hire was about NZ$185 last season).",
+  eat:"Kika in Wānaka, Michelin starred sharing plates. Book now.",sleep:"hawea",rv:"Glendhu Bay on Lake Wānaka, lakefront powered site (book early)."},
+ {d:"Thu 18 Feb",t:"Rob Roy Glacier",sun:"7:05am · 8:52pm",drive:"Hāwea to the Raspberry Creek carpark, about 1h 15m, last stretch unsealed with fords",
+  shot:"Rob Roy Glacier: 10 km return, about 400 m of climbing, a hanging glacier spilling waterfalls. Be walking by 7am; it's busy by 10.",
+  doo:"Afternoon hit on the Wanaka Tennis Club courts (about NZ$20 to $25 an hour, book online), or a wood-fired session at The Sauna Wanaka.",
+  eat:"Cook at the cottage, pinot on the deck at golden hour.",sleep:"hawea",rv:"Glendhu Bay again."},
+ {d:"Fri 19 Feb",t:"Isthmus Peak, then the high country",sun:"7:06am · 8:50pm",drive:"Isthmus Peak carpark is 15 min from Hāwea. Then Hāwea to Ben Ohau over the Lindis Pass, about 1h 40m",
+  shot:"Isthmus Peak for sunrise: about 16 km return and 1,100 m or more of climbing, Lake Wānaka on one side and Hāwea on the other. The quiet alternative to Roys Peak. No water or shade, so carry plenty.",
+  doo:"Stop at High Country Salmon in Twizel for sashimi from the floating cafe.",
+  eat:"Sashimi, then cook with the view.",sleep:"antlers",rv:"The Pines on the Lake Pukaki shore. Free, self-contained only, no bookings, Aoraki across the water."},
+ {d:"Sat 20 Feb",t:"Aoraki under a full moon",sun:"7:08am · 8:49pm",drive:"Ben Ohau to Mount Cook village, about 50 min",
+  shot:"Mueller Hut overnight if you get beds; otherwise Sealy Tarns at sunset (quiet after 7pm). Hooker Valley after dark under the full moon. Its new bridge opened July 2026, and the night of the eclipse is a rare shot.",
+  doo:"Glacier landing on the Tasman by ski plane, if the weather allows (about NZ$399 to $599). Keep it flexible; flights cancel often.",
+  eat:"Pack food for the hut, or back to Ben Ohau.",sleep:"antlers",rv:"The Pines again, or the hut."},
+ {d:"Sun 21 Feb",t:"Race day",sun:"7:09am · 8:48pm",drive:"Ben Ohau to Cromwell, about 1h 45m",
+  shot:"Lake Pukaki at first light on the way out. Tasman Glacier and Blue Lakes is a quick extra at sunrise if you stayed near the village.",
+  doo:"Highlands Motorsport Park: Supercar Fast Dash (NZ$204, second person NZ$149) and a kart race (NZ$59), or the Radical U-Drive (NZ$434). Then padel next door at Central Padel, two outdoor courts, book on Playtomic.",
+  eat:"Late lunch at the Mt Difficulty cellar door, Bannockburn (bookings essential). Book a Felton Road tasting by appointment.",sleep:"kawarau",rv:"Powered site in Cromwell."},
+ {d:"Mon 22 Feb",t:"Down to Fiordland",sun:"7:11am · 8:46pm",drive:"Cromwell to Te Anau via Kingston, about 2h 45m",
+  shot:"Late light on Lake Te Anau from the deck. If the forecast for tomorrow is bad, swap and do the Milford Road today.",
+  doo:"Hot tub, early night. Tomorrow starts in the dark.",
+  eat:"Te Anau is simple; cook or keep it casual.",sleep:"blacks",rv:"Drive on to Cascade Creek DOC campsite on the Milford Road (must be booked online)."},
+ {d:"Tue 23 Feb",t:"The Milford Road",sun:"7:12am · 8:45pm",drive:"Te Anau to Homer Tunnel, about 1h 30m. Check NZTA Journeys first",
+  shot:"Gertrude Saddle at first light, dry days only: 7 km return, 4 to 6 hours, granite slabs and Black Lake with Milford Sound below. Wet day plan: Lake Marian (Mt Christina in the reflection) and Key Summit.",
+  doo:"Rosco's Milford Kayaks sunrise paddle on the Sound (about NZ$199) if you'd rather be on the water. Big option: swap tonight for the Doubtful Sound overnight cruise from Manapouri (about NZ$1,142 each).",
+  eat:"Back to Te Anau for dinner and the hot tub.",sleep:"blacks",rv:"Cascade Creek again, an hour from Milford before the buses."},
+ {d:"Wed 24 Feb",t:"Bucks night",sun:"7:13am · 8:43pm",drive:"Te Anau to Queenstown, about 2 hours",
+  shot:"Skyline luge at dusk for the stupid footage, then the Queenstown lights from the gondola.",
+  doo:"Private cedar pool at Onsen Hot Pools, over the Shotover canyon (about NZ$180 for two, an hour). Or pickleball at the Queenstown Events Centre if you're itching for a hit (NZ$18.75 a court).",
+  eat:"The big one: Sherwood (Michelin starred, relaxed), or Essence (two stars) if Damo's earned it. Whisky by the fire at Bardeaux after.",sleep:"arrow",rv:"Powered site in Queenstown, van back by early afternoon tomorrow."},
+ {d:"Thu 25 Feb",t:"One last high",sun:"7:15am · 8:40pm",drive:"Arrowtown to the airport, 20 min. Be there by about 3:30pm",
+  shot:"Arrowtown's lanes in the morning, or the view from a paraglider.",
+  doo:"Tandem paraglide off Coronet Peak (about NZ$325 to $399). Or a slow morning and a dawn soak at Onsen.",
+  eat:"Lunch at Aosta in Arrowtown, Ben Bayly's Italian.",sleep:null,rv:"Return the van in Frankton, taxi to the airport."}
+];
 
-function build(){
-  const from=document.getElementById("b-from").value,to=document.getElementById("b-to").value,
-    dep=document.getElementById("b-dep").value,n=+document.getElementById("b-n").value||10,
-    ns=document.getElementById("b-ns").checked;
-  if(!dep)return;
-  const ret=addDays(dep,n);
-  document.getElementById("b-go").href=gf(from,to,dep,ret,ns);
-  document.getElementById("b-note").textContent=`${fmt(dep)} to ${fmt(ret)}, ${n} nights.`;
+let MODE="stay";
+function renderDays(){
+  document.getElementById("mode-note").textContent=MODE==="stay"
+   ?"Design stays every night. Roughly NZ$4,500 to $5,500 for the ten nights between you, before activities."
+   :"Stay the first night, collect the van Tuesday morning, and sleep on the water from there. Roughly NZ$6,000 to $7,000 for the van alone.";
+  document.getElementById("days").innerHTML=DAYS.map((x,i)=>{
+    const s=x.sleep&&STAY[x.sleep];
+    const sleep=x.sleep===null?"Home. VA 120 leaves Queenstown at 5:35pm.":(MODE==="rv"&&i>0?x.rv:`<b>${s.name}</b>, ${s.area} · ${s.beds} ${A(s.url,"View")}`);
+    return `<li class="day">
+      <div class="day__head"><span class="day__n">Day ${i+1}</span><span class="day__date">${x.d}</span><span class="day__sun">${x.sun}</span></div>
+      <h3 class="day__title">${x.t}</h3>
+      <dl class="day__grid">
+        <dt>Drive</dt><dd>${x.drive}</dd>
+        <dt>The shot</dt><dd>${x.shot}</dd>
+        <dt>Do</dt><dd>${x.doo}</dd>
+        <dt>Eat</dt><dd>${x.eat}</dd>
+        <dt>Sleep</dt><dd>${sleep}</dd>
+      </dl></li>`}).join("");
 }
-["b-from","b-to","b-dep","b-n","b-ns"].forEach(id=>document.getElementById(id).addEventListener("input",build));
-build();
+document.getElementById("mode").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;
+  document.querySelectorAll("#mode button").forEach(x=>x.setAttribute("aria-pressed",x===b));MODE=b.dataset.v;renderDays();});
+renderDays();
+
+const HIKES=[
+ ["Mueller Hut overnight","Aoraki/Mount Cook","About 5 km one way, about 1,000 m up, 3 to 4 hours","Glaciers on Mt Sefton, Aoraki at sunset, the Hooker Valley at sunrise. The overnight beats the crowds by default. Bookings opened in May and there's no waitlist, so check now; same-day cancellations release online until 8pm.","https://www.doc.govt.nz/parks-and-recreation/places-to-go/canterbury/places/aoraki-mount-cook-national-park/things-to-do/huts/mueller-hut/"],
+ ["Gertrude Saddle","Milford Road","7 km return, 4 to 6 hours, expert route","Granite slabs, Black Lake and a view down to Milford Sound. First light for calm water. Steel cables on steep slabs; deadly when wet, so dry days only.","https://www.doc.govt.nz/parks-and-recreation/places-to-go/fiordland/places/fiordland-national-park/things-to-do/tracks/gertrude-saddle-route"],
+ ["Isthmus Peak","Lake Hāwea","About 16 km return, 1,100 to 1,300 m up, 5 to 7 hours","Two lakes at once from the top, and far quieter than Roys Peak. Sunrise. No water or shade.","https://doc.govt.nz/parks-and-recreation/places-to-go/otago/places/wanaka-area/things-to-do/isthmus-peak-and-glen-dene-ridge-tracks"],
+ ["Brewster Hut","Haast Pass","3 to 4 hours, steep, about 1,000 m","Hut on the bushline under a glacier, few people, great at both ends of the day. Crosses the unbridged Haast River, so it's off after rain. Hut and camping both need booking. Swap in for a Hāwea day if you want an overnight.","https://doc.govt.nz/link/4696282a70644290aed8784edea0fa57"],
+ ["Lake Marian","Hollyford Road","3.1 km one way, rough tramping track","Mt Christina reflected in an alpine lake. Go early for still water. Pairs with Key Summit on a Milford Road day.","https://doc.govt.nz/parks-and-recreation/places-to-go/fiordland/places/fiordland-national-park/things-to-do/tracks/lake-marian-track"],
+ ["Rob Roy Glacier","Matukituki Valley, Wānaka","10 km return, about 400 m up","Hanging glacier and waterfalls. Busy by 10am, so walk at 7. Confirm the bridge with the Wānaka visitor centre; the road in has fords.","https://doc.govt.nz/parks-and-recreation/places-to-go/otago/places/mount-aspiring-national-park/things-to-do/tracks/rob-roy-track"],
+ ["Key Summit","The Divide, Milford Road","About 3 hours return, about 400 m up","Darran Mountains and cloud inversions. Sunrise beats the Routeburn day traffic.",""],
+ ["Hooker Valley","Aoraki/Mount Cook","About 5 km one way, 90 min each way","Reopened to the lake with a new bridge in July 2026. The busiest walk on the route by day, magic in the dark under a full moon.","https://www.doc.govt.nz/contentassets/97397ea1fb6c4e09927976177760805f/sd-aoraki-newsletter-august-2026.pdf"],
+ ["Tasman Glacier view and Blue Lakes","Aoraki/Mount Cook","About an hour","Quiet, good at sunset. A filler shoot for the Ben Ohau nights.",""],
+ ["Glenorchy Lagoon","Glenorchy","Flat, as long as you like","Sunrise reflections with almost nobody around.",""]
+];
+document.getElementById("hikes").innerHTML=HIKES.map((h,i)=>`<li><div class="flight__line"><b>${i+1}. ${h[0]}</b> · ${h[1]}</div><div class="flight__sub">${h[2]}</div><div class="text">${h[3]}</div>${h[4]?A(h[4],"DOC"):""}</li>`).join("");
+
+const FUN=[
+ ["Speed",[
+  ["Highlands Motorsport Park, Cromwell","Karts on a 650 m track (NZ$59, or NZ$45 weekdays with code GOWEEKDAY), Supercar Fast Dash (NZ$204, second person NZ$149), a pro driver Highlands Taxi (NZ$154), or drive a Radical yourself (NZ$434). Open 10am to 5pm, book online.","https://www.highlands.co.nz/"],
+  ["Dart River Wilderness Jet, Glenorchy","Half day into Mount Aspiring National Park. The jet boat with taste. About NZ$299.","https://www.dartriver.co.nz/"],
+  ["Skyline luge, Queenstown","Touristy, still fun. Go at dusk.","https://queenstown.skyline.co.nz/"],
+  ["Paragliding off Coronet Peak","Tandem from about NZ$325 (GForce) to NZ$399 (Skytrek).","https://gforce.rezdy.com/563534/coronet-peak-tandem-paraglide"],
+  ["Glacier landing, Mount Cook","Mount Cook Ski Planes and Helicopters, about NZ$399 to $599. Weather dependent.",""]]],
+ ["Racquets",[
+  ["Central Padel, Cromwell","The only padel in the region: two outdoor courts, 5am to 11pm, racquet hire. Book on Playtomic. Right by Highlands.","https://playtomic.com/clubs/central-padel-nz"],
+  ["Pickleball, Queenstown Events Centre","Private court NZ$18.75 an hour, or drop-in sessions Mon, Wed, Fri 9:30am. Book on 03 450 9005.","https://www.qldc.govt.nz/recreation/queenstown-events-centre/sport-leagues-and-programmes-at-qec/pickleball"],
+  ["Wanaka Tennis Club","Seven courts, about NZ$20 to $25 an hour for visitors, book online.","https://clubspark.kiwi/WanakaTennisClub"]]],
+ ["Hot water",[
+  ["Watershed floating sauna, Queenstown","Finnish sauna on the lake at St Omers Wharf, cold plunges straight in. Private for up to six NZ$299, communal about NZ$59 to $65 each.","https://www.bookme.co.nz/things-to-do/queenstown/activity/watershed-floating-sauna-experience/140791"],
+  ["Onsen Hot Pools, Arthurs Point","Private cedar pools over the Shotover, about NZ$180 for two for an hour. Book the moment February releases; it's only open to 28 Feb 2027 so far.","https://www.onsen.co.nz/"],
+  ["The Sauna Wanaka","Wood-fired mobile sauna.","https://www.thesaunawanaka.co.nz/"],
+  ["Tekapo Springs","About NZ$40. A detour from Pukaki if you want it.",""]]],
+ ["Eat and drink",[
+  ["Rata, Queenstown","Michelin star, bistro feel.",""],["Sherwood, Queenstown","Michelin star, relaxed. Bucks dinner pick.",""],
+  ["Essence, Queenstown","Two Michelin stars, the country's top table. The splurge.",""],["Kika, Wānaka","Michelin star, sharing plates. Book ahead.",""],
+  ["Aosta, Arrowtown","Ben Bayly's Italian.",""],["Mt Difficulty, Bannockburn","Cellar door lunch, bookings essential (03 445 3445).",""],
+  ["Felton Road","Tastings by appointment only.",""],["High Country Salmon, Twizel","Sashimi off the floating cafe.",""],
+  ["Little Blackwood and Bardeaux, Queenstown","Lake deck cocktails, then whisky by the fire.",""]]]
+];
+document.getElementById("fun").innerHTML=FUN.map(([g,items])=>`<div class="staygroup"><div class="staygroup__head"><span>${g}</span></div><ul class="lines">${items.map(([n,t,u])=>`<li><div class="flight__line"><b>${n}</b></div><div class="text">${t}</div>${u?A(u,"Book"):""}</li>`).join("")}</ul></div>`).join("");
+
+const TODO=[
+ ["Mueller Hut beds for Sat 20 Feb","Probably full already. Check DOC, then watch for cancellations."],
+ ["Onsen private pool for Wed 24 Feb","February is only just released."],
+ ["DOC drone permit","Check the zone map; green zones are instant, orange takes time and money."],
+ ["Car hire from Queenstown airport, 15 to 25 Feb","Or the maui van from Tue 16 Feb."],
+ ["Stays for all ten nights","February is peak. Lock the Hāwea cottage and Black's Hut first."],
+ ["Restaurant bookings","Kika (Wed 17), Sherwood or Essence (Wed 24), Rata (Mon 15), Mt Difficulty (Sun 21)."],
+ ["Dart River Jet (Tue 16) and Highlands (Sun 21)","Highlands books online only."],
+ ["Watershed private sauna (Mon 15)","Sunset slot."],
+ ["Central Padel court (Sun 21)","Playtomic."],
+ ["Cascade Creek campsite","Only if you go the RV route."],
+ ["Damo's flights","Same VA 119 and VA 120?"]
+];
+const KEY="nz27-todo";let done={};try{done=JSON.parse(localStorage.getItem(KEY)||"{}")}catch(e){}
+document.getElementById("todo").innerHTML=TODO.map(([t,n],i)=>`<li><label class="tick"><input type="checkbox" data-i="${i}" ${done[i]?"checked":""}><span><b>${t}</b><span class="flight__sub">${n}</span></span></label></li>`).join("");
+document.getElementById("todo").addEventListener("change",e=>{done[e.target.dataset.i]=e.target.checked;try{localStorage.setItem(KEY,JSON.stringify(done))}catch(_){}});
 </script>
 </body>
 </html>
