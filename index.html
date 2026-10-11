@@ -232,7 +232,7 @@ a{color:inherit}
           <p class="eyebrow">The loop · day by day</p>
           <h2 class="display">Ten nights</h2>
         </div>
-        <div class="filter" id="mode"><button aria-pressed="true" data-v="stay">Design stays</button><button aria-pressed="false" data-v="rv">Luxury RV</button></div>
+        <div class="filter" id="mode"><button aria-pressed="true" data-v="stay">Design stays</button><button aria-pressed="false" data-v="hotel">Calile tier</button><button aria-pressed="false" data-v="rv">Luxury RV</button></div>
       </div>
       <p class="text" id="mode-note"></p>
       <p class="hint">Queenstown › Glenorchy › Lake Hāwea › Ben Ohau (Mount Cook) › Bannockburn › Te Anau › Queenstown. Sunrise and sunset are Queenstown times; Mount Cook runs a few minutes earlier, Fiordland a few later.</p>
@@ -243,7 +243,7 @@ a{color:inherit}
     <section class="glass panel">
       <p class="eyebrow">Where we sleep</p>
       <h2 class="display">The stays</h2>
-      <p class="text">Every pick has two bedrooms or two separate beds, unless flagged. Airbnb doesn't show nightly prices until you enter dates, so the price bands are for comparable two bedroom homes in that area in February.</p>
+      <p class="text">Two ways to sleep well. The Calile tier is design hotels and lodges with a bar, restaurant or spa on site and twin beds, checked against live Booking.com rates for your dates where they loaded. Below that, design-led Airbnbs with two bedrooms; Airbnb hides nightly prices until you enter dates, so those bands are for comparable homes in February. Everything here is contemporary: dated hotels, chain stock and unrenovated rooms were dropped.</p>
       <div id="stays"></div>
     </section>
 
@@ -337,9 +337,17 @@ const STAY={
  kawarau:{area:"Felton Road, Bannockburn",name:"Kawarau Cottage",beds:"Queen and 2 singles",why:"On the vineyard with river and mountain views, a few minutes from Highlands and the padel courts.",url:"https://www.airbnb.co.nz/rooms/8309608"},
  purepods:{area:"Near Cromwell",name:"PurePods Tāima and Haurapa",beds:"One king per pod, so book both",flag:"One bed per pod, from about NZ$395 each.",why:"All-glass pods on a ridge. Gravel road, then a 300 m walk in.",url:"https://www.purepods.com/"},
  blacks:{area:"Lake Te Anau",name:"Black's Hut",beds:"2 bedrooms, 2 bathrooms",why:"Built in 2022 on the lakefront, adults-focused, with a hot tub. Rated 5.0.",url:"https://www.airbnb.co.nz/rooms/52614454"},
+ sherwood:{area:"Frankton Road, Queenstown",name:"Sherwood",beds:"Standard twin, 2 singles on request",tier:1,price:"About NZ$508 a night: NZ$1,015 for 15 to 17 Feb on Booking.com. Two night minimum.",why:"The closest thing to The Calile here: a social design hotel with a Michelin starred restaurant, a proper bar, courtyard, yoga studio and sauna. No pool. Flack Studio is refurbishing rooms from 2026, so ask for a refurbished one.",url:"https://www.sherwoodqueenstown.nz/room/standard-twin-room/"},
+ kamana:{area:"Fernhill, Queenstown",name:"Kamana Lakehouse",beds:"Twin room, 2 queens",tier:1,price:"NZ$643 (courtyard) or NZ$755 to $810 (Remarkables view) on Booking.com for your dates.",why:"Rebuilt from the old Aspen Hotel and reopened in 2018. Three hot tubs, Nest Kitchen and Bar, terrace, massage. Booking.com warns of construction next door, so ask about views and noise.",url:"https://www.booking.com/hotel/nz/aspen-queenstown-tanoa-hotels.en-gb.html"},
+ marina:{area:"Lakefront, Wānaka",name:"Marina Terrace",beds:"2 bedroom, 2 bathroom apartment (bed types to confirm)",tier:1,price:"2 bedrooms from about NZ$795 a night (official site, not dated).",why:"Mason and Wales architecture, built 2017 to 2021, NZIA award 2024. Indoor heated pool, hot tub and gym, five minutes' walk to town. Self-catering, so dinner is at Kika.",url:"https://marinaterrace.co.nz/"},
+ hermitage:{area:"Aoraki/Mount Cook village",name:"The Hermitage, Aoraki Wing",beds:"2 queens",tier:1,price:"Rate not confirmed; check the hotel directly.",why:"All 60 Aoraki Wing rooms were refurbished in 2023 by Outline Design, and the mountain fills the windows. Restaurant and bar downstairs, Hooker Valley from the door. It's a big hotel, so insist on the Aoraki Wing; the Mount Cook Wing is older.",url:"https://www.hermitage.co.nz/"},
+ woolshed:{area:"Lake Tekapo",name:"Woolshed Tekapo Suites",beds:"Twin or super king",tier:1,price:"Rate not confirmed.",why:"Twelve new 55 m² suites in the village, ten minutes from Tekapo Springs. No pool or restaurant.",url:"https://www.mackenzienz.com/visit/woolshed-tekapo-suites/"},
+ gibbston:{area:"Gibbston Valley",name:"Gibbston Valley Lodge and Spa",beds:"One bedroom villa, king or 2 singles (confirm in writing)",tier:1,price:"NZ$900 on Booking.com for 15 and 24 Feb; 21 Feb not checked.",why:"Opened 2019. Villas by Space Studio and a schist lodge by Wyatt and Gray among the vines, with a day spa (sauna, hot tub, open-air bath), restaurant and wine cave. The recovery night after race day.",url:"https://www.booking.com/hotel/nz/gibbston-valley-lodge-and-spa.en-gb.html"},
+ milford:{area:"Milford Sound",name:"Milford Sound Lodge, Mountain View Chalet",beds:"Super king or 2 king singles",tier:1,price:"About NZ$755 to $1,200 a night from an older listing; recheck. Two night minimum November to April.",why:"Floor-to-ceiling glass chalets in the rainforest at the end of the Milford Road, with Pio Pio restaurant on site. You wake up an hour closer to Gertrude Saddle than Te Anau, and there's nobody around at night.",url:"https://milfordlodge.com/stay/mountain-view-chalet/"},
  kahikatea:{area:"Manapouri",name:"Kahikatea House",beds:"2 bedrooms, 2 bathrooms",why:"Modern house beside the lake with big glazing. Closest base for Doubtful Sound.",url:"https://www.airbnb.co.nz/rooms/1270521875544691386"}
 };
 const BANDS=[
+ ["The Calile tier","Design hotels and lodges, about NZ$650 to $1,000 a night",["sherwood","kamana","gibbston","marina","hermitage","woolshed","milford"]],
  ["Queenstown and Arrowtown","About NZ$350 to $690 a night",["hayes","arrow"]],
  ["Glenorchy","About NZ$395 to $1,180",["headwaters","fox"]],
  ["Wānaka and Hāwea","About NZ$345 to $550",["hawea","kowhai"]],
@@ -347,7 +355,7 @@ const BANDS=[
  ["Cromwell and Bannockburn","About NZ$310 to $575",["kawarau","purepods"]],
  ["Te Anau and Manapouri","About NZ$330 to $860",["blacks","kahikatea"]]
 ];
-document.getElementById("stays").innerHTML=BANDS.map(([area,band,keys])=>`<div class="staygroup"><div class="staygroup__head"><span>${area}</span><span class="dim">${band}</span></div><ul class="lines">${keys.map(k=>{const s=STAY[k];return `<li><div class="flight__line"><b>${s.name}</b></div><div class="flight__sub">${s.area} · ${s.beds}</div><div class="text">${s.why}</div>${s.flag?`<div class="flight__note">${s.flag}</div>`:""}${A(s.url,"View")}</li>`}).join("")}</ul></div>`).join("");
+document.getElementById("stays").innerHTML=BANDS.map(([area,band,keys])=>`<div class="staygroup"><div class="staygroup__head"><span>${area}</span><span class="dim">${band}</span></div><ul class="lines">${keys.map(k=>{const s=STAY[k];return `<li><div class="flight__line"><b>${s.name}</b></div><div class="flight__sub">${s.area} · ${s.beds}</div><div class="text">${s.why}</div>${s.price?`<div class="flight__note">${s.price}</div>`:""}${s.flag?`<div class="flight__note">${s.flag}</div>`:""}${A(s.url,"View")}</li>`}).join("")}</ul></div>`).join("")+`<p class="hint">Over budget or one bed only: Lakestone Lodge (from NZ$990, super king rooms only), Mt Cook Lakeside Retreat (from NZ$1,895), Hotel St Moritz (king only, about NZ$1,472 for two rooms), QT Queenstown twin (NZ$1,193, rooms under renovation to mid 2027). The Headwaters in Glenorchy does a twin setup in its Deluxe room for NZ$990.</p>`;
 
 // Day by day. sleep: stay key; rv: what the van night is.
 const DAYS=[
@@ -397,14 +405,22 @@ const DAYS=[
   eat:"Lunch at Aosta in Arrowtown, Ben Bayly's Italian.",sleep:null,rv:"Return the van in Frankton, taxi to the airport."}
 ];
 
+const HOTEL=[
+ ["sherwood",""],["sherwood","Glenorchy becomes a day trip: 45 minutes each way, back for dinner."],
+ ["marina",""],["marina",""],["hermitage","Or keep Antlers Rest at Ben Ohau for the better design."],["hermitage",""],
+ ["gibbston","About 35 minutes from Highlands. Book the spa for after the racing."],
+ ["milford","Drive on to the lodge, about 4.5 to 5 hours from Gibbston. Tomorrow's trailheads are 20 minutes away."],
+ ["milford","Dinner at Pio Pio, at the lodge."],["kamana",""],null];
 let MODE="stay";
 function renderDays(){
   document.getElementById("mode-note").textContent=MODE==="stay"
    ?"Design stays every night. Roughly NZ$4,500 to $5,500 for the ten nights between you, before activities."
+   :MODE==="hotel"?"The Calile tier: design hotels and lodges with a bar, a restaurant or a spa on site. Roughly NZ$6,500 to $8,000 for the ten nights between you; the Hermitage and Milford rates still need confirming."
    :"Stay the first night, collect the van Tuesday morning, and sleep on the water from there. Roughly NZ$6,000 to $7,000 for the van alone.";
   document.getElementById("days").innerHTML=DAYS.map((x,i)=>{
     const s=x.sleep&&STAY[x.sleep];
-    const sleep=x.sleep===null?"Home. VA 120 leaves Queenstown at 5:35pm.":(MODE==="rv"&&i>0?x.rv:`<b>${s.name}</b>, ${s.area} · ${s.beds} ${A(s.url,"View")}`);
+    const h=HOTEL[i],hs=h&&STAY[h[0]];
+    const sleep=x.sleep===null?"Home. VA 120 leaves Queenstown at 5:35pm.":(MODE==="rv"&&i>0?x.rv:MODE==="hotel"?`<b>${hs.name}</b>, ${hs.area} · ${hs.beds} ${A(hs.url,"View")}${h[1]?`<br><span class="flight__sub">${h[1]}</span>`:""}`:`<b>${s.name}</b>, ${s.area} · ${s.beds} ${A(s.url,"View")}`);
     return `<li class="day">
       <div class="day__head"><span class="day__n">Day ${i+1}</span><span class="day__date">${x.d}</span><span class="day__sun">${x.sun}</span></div>
       <h3 class="day__title">${x.t}</h3>
