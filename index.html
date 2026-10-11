@@ -152,19 +152,19 @@ a{color:inherit}
 .window__pair{display:grid;grid-template-columns:1fr 1fr;gap:12px 22px;margin-top:10px}
 .window__pair .open{display:inline-block;margin-top:6px}
 @media (max-width:520px){.window__pair{grid-template-columns:1fr}}
-.backdrop img{object-position:50% 60%}
+.backdrop img{object-position:50% 78%}
 </style>
 
 </head>
 <body>
-<div class="backdrop" aria-hidden="true"><img src="assets/water.jpg" alt=""><div class="backdrop__veil"></div></div>
+<div class="backdrop" aria-hidden="true"><img src="https://images.unsplash.com/photo-1656004517360-e50885ca0ad5?w=2000&amp;q=80&amp;auto=format&amp;fit=max" alt=""><div class="backdrop__veil"></div></div>
 
 <main class="page">
   <header class="hero">
     <div class="hero__text">
-      <p class="eyebrow">For Jacob and Damo</p>
+      <p class="eyebrow">For Jacob and Damo · locked in</p>
       <h1 class="hero__island">South Island</h1>
-      <p class="hero__project">Ten days hiking out of Queenstown. December, January or February, on cash or Velocity points.</p>
+      <p class="hero__project">Tue 23 February to Fri 5 March 2027. Ten days hiking, into Queenstown, home from Queenstown or Christchurch.</p>
     </div>
   </header>
 
@@ -172,46 +172,45 @@ a{color:inherit}
     <section class="glass panel best" aria-label="Best flights for both of us">
       <div class="best__head">
         <div>
-          <p class="eyebrow">Best flights for both of us</p>
+          <p class="eyebrow">Best flights for both of us · 23 Feb to 5 Mar</p>
           <h2 class="display">The pick</h2>
         </div>
         <p class="best__total" id="best-total"></p>
       </div>
-      <p class="best__basis">Return flights to Queenstown, economy, per person, in AUD. Non-stop only, since it's barely dearer than going via Auckland. Google Flights prices from 11 Oct 2026, so they will move.</p>
+      <p class="best__basis">Economy, per person, in AUD, non-stop both ways. Google Flights prices from 11 Oct 2026, so they will move.</p>
       <div class="filter" id="best-tabs"></div>
       <div class="pair" id="best-pair"></div>
       <p class="best__note" id="best-note"></p>
     </section>
 
     <section class="glass panel">
-      <p class="eyebrow">The short version</p>
-      <h2 class="display">Late January, both on Virgin</h2>
-      <p class="lede">Tue 26 January to Fri 5 February is the cheapest window we found: $1,351 for both, each of you non-stop from your own city on Virgin, so it can go on Velocity points too. Every window we checked came in between $1,350 and $1,600 for the pair, so pick on the hiking, not the fare.</p>
+      <p class="eyebrow">The Christchurch option</p>
+      <h2 class="display">Finish at Mount Cook</h2>
+      <p class="lede">Fly into Queenstown and home from Christchurch, and the last few days become a road trip: Wānaka, Lake Pukaki, Aoraki/Mount Cook, then over to Christchurch. You don't double back, and it's about $100 cheaper for the two of you.</p>
       <ul class="lines">
         <li class="plan">
-          <span class="plan__name">Cheapest</span>
-          <span class="plan__sum">$1,351<small>for both</small></span>
-          <span class="plan__title">26 Jan to 5 Feb</span>
-          <p class="plan__detail">Peak summer, longest days (light until about 9:30pm), busiest tracks.</p>
+          <span class="plan__name">Home from Christchurch</span>
+          <span class="plan__sum">$1,314<small>for both</small></span>
+          <span class="plan__title">Into Queenstown on Virgin, home on Air New Zealand</span>
+          <p class="plan__detail">Jacob $431 out and $263 home, Damo $370 out and $250 home, all non-stop. Two one way tickets each.</p>
         </li>
         <li class="plan">
-          <span class="plan__name">Quieter, steadier weather</span>
+          <span class="plan__name">Back to Queenstown</span>
           <span class="plan__sum">$1,410<small>for both</small></span>
-          <span class="plan__title">23 Feb to 5 Mar</span>
-          <p class="plan__detail">Kids are back at school, the crowds thin out and the weather tends to settle. Both on Virgin non-stop.</p>
+          <span class="plan__title">Virgin return, both of you</span>
+          <p class="plan__detail">Simpler, one ticket each, and all of it can go on Velocity points. Mount Cook is still a day trip, about three hours each way.</p>
         </li>
-        <li class="plan">
-          <span class="plan__name">Before Christmas</span>
-          <span class="plan__sum">$1,522<small>for both</small></span>
-          <span class="plan__title">8 to 18 Dec</span>
-          <p class="plan__detail">Early in the season and quiet. High alpine routes can still hold snow, so check DOC track alerts before you lock in a big day.</p>
-        </li>
+      </ul>
+      <ul class="lines">
+        <li>The cheapest Christchurch flights leave around 6:00am, so stay near the airport on the last night. Later ones (Qantas to Brisbane at 3:55pm, Jetstar to Melbourne at 9:15am) bring the total to about $1,386.</li>
+        <li>Hire companies usually charge a one way fee to drop a Queenstown car in Christchurch. Price it in before you book; it can wipe out the flight saving.</li>
+        <li>The Mueller Hut overnight at Mount Cook fits this route perfectly. It needs a DOC booking.</li>
       </ul>
     </section>
 
     <section class="glass panel">
-      <p class="eyebrow">Every window we checked</p>
-      <h2 class="display">The dates</h2>
+      <p class="eyebrow">For reference</p>
+      <h2 class="display">Other dates we checked</h2>
       <p class="text">Ten days each, return. Cheapest non-stop for each of you, plus what it would cost going via Auckland or Sydney if that's cheaper.</p>
       <div class="filters">
         <div class="filter" data-f="m"><span class="label">When</span>
@@ -264,7 +263,7 @@ a{color:inherit}
           <select id="b-from"><option value="BNE">Brisbane</option><option value="MEL">Melbourne</option></select></label>
         <label class="field"><span class="label">To</span>
           <select id="b-to"><option value="ZQN">Queenstown</option><option value="CHC">Christchurch</option></select></label>
-        <label class="field"><span class="label">Leave</span><input type="date" id="b-dep" value="2027-01-26" min="2026-10-12"></label>
+        <label class="field"><span class="label">Leave</span><input type="date" id="b-dep" value="2027-02-23" min="2026-10-12"></label>
         <label class="field"><span class="label">Nights</span><input type="number" id="b-n" value="10" min="3" max="30" inputmode="numeric"></label>
         <label class="check"><input type="checkbox" id="b-ns" checked> Non-stop only</label>
       </div>
@@ -281,7 +280,7 @@ a{color:inherit}
       </ul>
     </section>
 
-    <footer class="sign"><span role="img" aria-label="Captain Nino"></span><p>Planned with Sail</p></footer>
+    <footer class="sign"><span role="img" aria-label="Captain Nino"></span><p>Planned with Sail</p><p>Photo: Aoraki/Mount Cook over Lake Pukaki by <a href="https://unsplash.com/@marekpiwnicki?utm_source=south_island_2027&amp;utm_medium=referral">Marek Piwnicki</a> on <a href="https://unsplash.com/?utm_source=south_island_2027&amp;utm_medium=referral">Unsplash</a></p></footer>
   </div>
 </main>
 
@@ -304,23 +303,29 @@ const W=[
  {dep:"2027-02-23",j:{p:779,a:"Virgin Australia",t:"10:10am"},d:{p:631,a:"Virgin Australia",t:"8:00am"},jc:{p:689,a:"Jetstar via Sydney"},dc:{p:585,a:"Jetstar via Auckland"}}
 ].map(w=>({...w,ret:addDays(w.dep,10),total:w.j.p+w.d.p}));
 
-// The pick widget.
-const BEST=[
- {tab:"Early Dec",i:1},{tab:"Mid Dec",i:2},{tab:"Mid Jan",i:4},{tab:"Late Jan",i:6},{tab:"Mid Feb",i:8},{tab:"Late Feb",i:9}
-];
+// The pick widget: the locked dates, two ways home.
+const ow=(from,to,dep)=>"https://www.google.com/travel/flights?q="+encodeURIComponent(`One way flights from ${from} to ${to} on ${dep}`)+"&curr=AUD&hl=en-AU&gl=AU";
 const PTS="Or about 35,800 Velocity points return, plus taxes";
+const BEST=[
+ {tab:"Back to Queenstown",total:1410,note:"Tue 23 Feb to Fri 5 Mar. Both on Virgin, so both can go on Velocity points.",
+  j:{p:779,sub:PTS,what:"Virgin Australia non-stop, both ways",how:"Leaves Brisbane 10:10am · about 3.5 hours",links:[["Open flight",gf("BNE","ZQN","2027-02-23","2027-03-05",true)]]},
+  d:{p:631,sub:PTS,what:"Virgin Australia non-stop, both ways",how:"Leaves Melbourne 8:00am · about 3 hours",links:[["Open flight",gf("MEL","ZQN","2027-02-23","2027-03-05",true)]]}},
+ {tab:"Home from Christchurch",total:1314,note:"Into Queenstown Tue 23 Feb, home from Christchurch Fri 5 Mar. Two one way tickets each. The home flights leave around 6am.",
+  j:{p:694,sub:"$431 out on Virgin, $263 home on Air NZ",what:"Brisbane to Queenstown, Christchurch to Brisbane",how:"Home flight leaves 6:05am",links:[["Out",ow("BNE","ZQN","2027-02-23")],["Home",ow("CHC","BNE","2027-03-05")]]},
+  d:{p:620,sub:"$370 out on Virgin, $250 home on Air NZ",what:"Melbourne to Queenstown, Christchurch to Melbourne",how:"Home flight leaves 6:00am",links:[["Out",ow("MEL","ZQN","2027-02-23")],["Home",ow("CHC","MEL","2027-03-05")]]}}
+];
 const tabs=document.getElementById("best-tabs");
-tabs.innerHTML=BEST.map((b,k)=>`<button aria-pressed="${k===3}" data-k="${k}">${b.tab}</button>`).join("");
+tabs.innerHTML=BEST.map((b,k)=>`<button aria-pressed="${k===0}" data-k="${k}">${b.tab}</button>`).join("");
 function showBest(k){
-  const w=W[BEST[k].i];
+  const b=BEST[k];
   tabs.querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x.dataset.k==k));
-  document.getElementById("best-total").innerHTML=`$${w.total.toLocaleString()}<small>for both</small>`;
-  const pick=(who,city,code,p)=>`<div class="pick"><div class="pick__who">${who} · from ${city}</div><div class="pick__price">$${p.p.toLocaleString()}</div><div class="pick__bag">${p.a==="Virgin Australia"?PTS:"&nbsp;"}</div><div class="pick__what">${p.a} non-stop to Queenstown</div><div class="pick__how">Leaves ${p.t} · about 3 hours</div><a class="open" target="_blank" rel="noopener" href="${gf(code,"ZQN",w.dep,w.ret,true)}">Open flight ↗</a></div>`;
-  document.getElementById("best-pair").innerHTML=pick("Jacob","Brisbane","BNE",w.j)+pick("Damo","Melbourne","MEL",w.d);
-  document.getElementById("best-note").textContent=`${fmt(w.dep)} to ${fmt(w.ret)}.`+(w.j.a==="Virgin Australia"&&w.d.a==="Virgin Australia"?" Both on Virgin, so both can go on points.":"");
+  document.getElementById("best-total").innerHTML=`$${b.total.toLocaleString()}<small>for both</small>`;
+  const pick=(who,city,p)=>`<div class="pick"><div class="pick__who">${who} · from ${city}</div><div class="pick__price">$${p.p.toLocaleString()}</div><div class="pick__bag">${p.sub}</div><div class="pick__what">${p.what}</div><div class="pick__how">${p.how}</div>${p.links.map(([t,u])=>`<a class="open" target="_blank" rel="noopener" href="${u}">${t} ↗</a>`).join(" &nbsp; ")}</div>`;
+  document.getElementById("best-pair").innerHTML=pick("Jacob","Brisbane",b.j)+pick("Damo","Melbourne",b.d);
+  document.getElementById("best-note").textContent=b.note;
 }
 tabs.addEventListener("click",e=>{const t=e.target.closest("button");if(t)showBest(+t.dataset.k)});
-showBest(3);
+showBest(0);
 
 // The full list.
 const F={m:"all",sort:"date"};
