@@ -162,9 +162,9 @@ a{color:inherit}
 <main class="page">
   <header class="hero">
     <div class="hero__text">
-      <p class="eyebrow">For Jacob and Damo · locked in</p>
+      <p class="eyebrow">For Jacob and Damo · late February</p>
       <h1 class="hero__island">South Island</h1>
-      <p class="hero__project">Tue 23 February to Fri 5 March 2027. Ten days hiking, into Queenstown, home from Queenstown or Christchurch.</p>
+      <p class="hero__project">Mon 22 February to Fri 5 March 2027. Eleven days hiking, into Queenstown, home from Queenstown or Christchurch.</p>
     </div>
   </header>
 
@@ -172,15 +172,26 @@ a{color:inherit}
     <section class="glass panel best" aria-label="Best flights for both of us">
       <div class="best__head">
         <div>
-          <p class="eyebrow">Best flights for both of us · 23 Feb to 5 Mar</p>
+          <p class="eyebrow">Best February flights for both of us</p>
           <h2 class="display">The pick</h2>
         </div>
         <p class="best__total" id="best-total"></p>
       </div>
-      <p class="best__basis">Economy, per person, in AUD, non-stop both ways. Google Flights prices from 11 Oct 2026, so they will move.</p>
+      <p class="best__basis">Economy, per person, in AUD, non-stop both ways. We scanned every February departure date on Google Flights on 11 Oct 2026, so prices will move.</p>
       <div class="filter" id="best-tabs"></div>
       <div class="pair" id="best-pair"></div>
       <p class="best__note" id="best-note"></p>
+    </section>
+
+    <section class="glass panel">
+      <p class="eyebrow">What the February scan showed</p>
+      <h2 class="display">Damo's day matters, Jacob's doesn't</h2>
+      <ul class="lines">
+        <li><strong>Jacob:</strong> Virgin non-stop from Brisbane sits at $756 to $791 return on every February date. Jetstar via Auckland or Sydney saves up to about $90 but means an overnight or a long connection. Not worth it.</li>
+        <li><strong>Damo:</strong> Jetstar's 2:50pm non-stop from Melbourne is the cheap one, $482 to $535 return, and in our scan it only showed up when he flew out on a Sunday, Monday, Wednesday or Friday and came home on a Wednesday, Friday or Sunday. Tuesday, Thursday and Saturday departures pushed him back onto Virgin at $630 plus.</li>
+        <li><strong>Cheapest late February trip:</strong> Mon 22 Feb to Fri 5 Mar, $1,261 for both, all non-stop. Mid February (Sun 14 to Wed 24) is $1,270, so it's really your call on timing.</li>
+        <li>Jetstar fares don't include a checked bag, so add about $100 to $200 return for Damo's pack.</li>
+      </ul>
     </section>
 
     <section class="glass panel">
@@ -263,7 +274,7 @@ a{color:inherit}
           <select id="b-from"><option value="BNE">Brisbane</option><option value="MEL">Melbourne</option></select></label>
         <label class="field"><span class="label">To</span>
           <select id="b-to"><option value="ZQN">Queenstown</option><option value="CHC">Christchurch</option></select></label>
-        <label class="field"><span class="label">Leave</span><input type="date" id="b-dep" value="2027-02-23" min="2026-10-12"></label>
+        <label class="field"><span class="label">Leave</span><input type="date" id="b-dep" value="2027-02-22" min="2026-10-12"></label>
         <label class="field"><span class="label">Nights</span><input type="number" id="b-n" value="10" min="3" max="30" inputmode="numeric"></label>
         <label class="check"><input type="checkbox" id="b-ns" checked> Non-stop only</label>
       </div>
@@ -299,15 +310,23 @@ const W=[
  {dep:"2027-01-23",j:{p:768,a:"Virgin Australia",t:"10:10am"},d:{p:606,a:"Jetstar",t:"2:50pm"},jc:{p:729,a:"Jetstar via Auckland"},dc:null},
  {dep:"2027-01-26",j:{p:756,a:"Virgin Australia",t:"10:10am"},d:{p:595,a:"Virgin Australia",t:"8:00am"},jc:{p:728,a:"Air NZ via Christchurch"},dc:null},
  {dep:"2027-02-09",j:{p:791,a:"Virgin Australia",t:"10:10am"},d:{p:658,a:"Virgin Australia",t:"8:00am"},jc:{p:701,a:"Jetstar via Sydney"},dc:{p:603,a:"Jetstar via Sydney"}},
+ {dep:"2027-02-14",j:{p:768,a:"Virgin Australia",t:"10:10am"},d:{p:502,a:"Jetstar",t:"2:50pm"},jc:{p:706,a:"Jetstar via Sydney"},dc:null},
  {dep:"2027-02-16",j:{p:756,a:"Virgin Australia",t:"10:10am"},d:{p:669,a:"Qantas",t:"6:40am"},jc:{p:701,a:"Jetstar via Sydney"},dc:{p:632,a:"Virgin via Sydney"}},
+ {dep:"2027-02-22",ret:"2027-03-05",j:{p:779,a:"Virgin Australia",t:"10:10am"},d:{p:482,a:"Jetstar",t:"2:50pm"},jc:{p:712,a:"Jetstar via Auckland"},dc:null},
  {dep:"2027-02-23",j:{p:779,a:"Virgin Australia",t:"10:10am"},d:{p:631,a:"Virgin Australia",t:"8:00am"},jc:{p:689,a:"Jetstar via Sydney"},dc:{p:585,a:"Jetstar via Auckland"}}
-].map(w=>({...w,ret:addDays(w.dep,10),total:w.j.p+w.d.p}));
+].map(w=>({...w,ret:w.ret||addDays(w.dep,10),total:w.j.p+w.d.p}));
 
 // The pick widget: the locked dates, two ways home.
 const ow=(from,to,dep)=>"https://www.google.com/travel/flights?q="+encodeURIComponent(`One way flights from ${from} to ${to} on ${dep}`)+"&curr=AUD&hl=en-AU&gl=AU";
 const PTS="Or about 35,800 Velocity points return, plus taxes";
 const BEST=[
- {tab:"Back to Queenstown",total:1410,note:"Tue 23 Feb to Fri 5 Mar. Both on Virgin, so both can go on Velocity points.",
+ {tab:"Best: 22 Feb to 5 Mar",total:1261,note:"Mon 22 Feb to Fri 5 Mar, eleven days. Leaving a day earlier than Tuesday puts Damo on Jetstar's non-stop for $482, about $150 less than Virgin. Jacob's Virgin fare is the same either day.",
+  j:{p:779,sub:PTS,what:"Virgin Australia non-stop, both ways",how:"Leaves Brisbane 10:10am · about 3.5 hours",links:[["Open flight",gf("BNE","ZQN","2027-02-22","2027-03-05",true)]]},
+  d:{p:482,sub:"Jetstar, so bags are extra",what:"Jetstar non-stop, both ways",how:"Leaves Melbourne 2:50pm · about 3 hours",links:[["Open flight",gf("MEL","ZQN","2027-02-22","2027-03-05",true)]]}},
+ {tab:"Mid Feb",total:1270,note:"Sun 14 to Wed 24 Feb, ten days. Practically the same price as late February, and the same mix of airlines.",
+  j:{p:768,sub:PTS,what:"Virgin Australia non-stop, both ways",how:"Leaves Brisbane 10:10am · about 3.5 hours",links:[["Open flight",gf("BNE","ZQN","2027-02-14","2027-02-24",true)]]},
+  d:{p:502,sub:"Jetstar, so bags are extra",what:"Jetstar non-stop, both ways",how:"Leaves Melbourne 2:50pm · about 3 hours",links:[["Open flight",gf("MEL","ZQN","2027-02-14","2027-02-24",true)]]}},
+ {tab:"All on points",total:1410,note:"Tue 23 Feb to Fri 5 Mar. Both on Virgin, so both can go on Velocity points instead of cash.",
   j:{p:779,sub:PTS,what:"Virgin Australia non-stop, both ways",how:"Leaves Brisbane 10:10am · about 3.5 hours",links:[["Open flight",gf("BNE","ZQN","2027-02-23","2027-03-05",true)]]},
   d:{p:631,sub:PTS,what:"Virgin Australia non-stop, both ways",how:"Leaves Melbourne 8:00am · about 3 hours",links:[["Open flight",gf("MEL","ZQN","2027-02-23","2027-03-05",true)]]}},
  {tab:"Home from Christchurch",total:1314,note:"Into Queenstown Tue 23 Feb, home from Christchurch Fri 5 Mar. Two one way tickets each. The home flights leave around 6am.",
