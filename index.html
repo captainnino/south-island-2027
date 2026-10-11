@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>South Island 2027</title>
+<meta name="description" content="Brisbane and Melbourne to Queenstown, ten days of hiking, December 2026 to March 2027.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<style>
+@font-face{font-family:"Antonio";src:url("assets/fonts/Antonio-100-700.woff2") format("woff2");font-weight:100 700;font-display:swap}
+@font-face{font-family:"Poppins";src:url("assets/fonts/Poppins-300.woff2") format("woff2");font-weight:300;font-display:swap}
+@font-face{font-family:"Poppins";src:url("assets/fonts/Poppins-400.woff2") format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Poppins";src:url("assets/fonts/Poppins-500.woff2") format("woff2");font-weight:500;font-display:swap}
+
+/* Sail share chassis: the Captain Nino palette, stone and sand on ink. */
+:root{
+  color-scheme:dark;
+  --cn-ink:#1f221e; --cn-stone:#9e9a97; --cn-taupe:#897c6c; --cn-sand:#c3b9af;
+  --ink:#eeeae5; --ink-2:#c3b9af; --ink-3:#b5b0ac; --ink-4:#a7a4a0; --ink-on-light:#1f221e;
+  --hairline:rgb(158 154 151 / .24); --focus-ring:rgb(195 185 175 / .85);
+  --ground:#1f221e;
+  --font-display:"Antonio","Arial Narrow","Helvetica Neue",sans-serif;
+  --font-ui:"Poppins",-apple-system,BlinkMacSystemFont,system-ui,"Segoe UI",Roboto,Arial,sans-serif;
+  --radius:3px; --gutter:16px;
+  --safe-top:env(safe-area-inset-top,0px); --safe-bottom:env(safe-area-inset-bottom,0px);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{background:var(--ground);-webkit-text-size-adjust:100%}
+body{margin:0;min-height:100svh;font-family:var(--font-ui);font-size:16px;line-height:1.55;color:var(--ink);background:var(--ground);-webkit-font-smoothing:antialiased;overflow-x:hidden;overflow-wrap:break-word}
+::selection{background:rgb(137 124 108 / .55);color:#fff}
+:focus-visible{outline:2px solid var(--focus-ring);outline-offset:3px}
+a{color:inherit}
+
+/* The photograph behind everything. */
+.backdrop{position:fixed;inset:0;z-index:0;overflow:hidden;background:linear-gradient(180deg,#2a2d28 0%,#1f221e 46%,#151714 100%)}
+.backdrop img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:62% 30%}
+.backdrop__veil{position:absolute;inset:0;background:linear-gradient(180deg,rgb(20 22 19 / .34) 0%,rgb(20 22 19 / .08) 26%,rgb(20 22 19 / .5) 62%,rgb(20 22 19 / .86) 100%)}
+
+.glass{position:relative;border-radius:var(--radius);color:var(--ink);
+  background:linear-gradient(180deg,rgb(31 34 30 / .88) 0%,rgb(31 34 30 / .92) 100%);
+  box-shadow:inset 0 0 0 1px rgb(158 154 151 / .22),0 28px 60px -30px rgb(8 10 8 / .7),0 2px 8px rgb(8 10 8 / .16);
+  -webkit-backdrop-filter:blur(16px) saturate(120%);backdrop-filter:blur(16px) saturate(120%)}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.glass{background:rgb(31 34 30 / .95)}}
+
+.eyebrow,.label{margin:0;font-size:12px;font-weight:400;letter-spacing:.01em;line-height:1.3;color:var(--ink-3)}
+.display{margin:12px 0 0;font-family:var(--font-display);font-weight:400;font-size:clamp(30px,8.6vw,40px);line-height:.96;letter-spacing:.01em;text-transform:uppercase;text-wrap:balance}
+.lede{margin:14px 0 0;font-size:18px;font-weight:300;line-height:1.45;color:var(--ink-2)}
+.text{margin:10px 0 0;color:var(--ink-2)}
+.hint{margin:8px 0 0;font-size:13px;color:var(--ink-4)}
+
+.page{position:relative;z-index:1}
+.hero{position:relative;display:flex;align-items:flex-end;min-height:82svh;max-width:760px;margin:0 auto;padding:calc(var(--safe-top) + 64px) var(--gutter) 44px}
+.hero::before{content:"";position:absolute;top:calc(var(--safe-top) + 22px);left:var(--gutter);width:22px;height:22px;background-color:var(--ink);
+  -webkit-mask:url("assets/brand/monogram-cn.svg") center/contain no-repeat;mask:url("assets/brand/monogram-cn.svg") center/contain no-repeat;filter:drop-shadow(0 1px 2px rgb(14 16 13 / .5))}
+.hero__text{width:100%;text-shadow:0 1px 2px rgb(14 16 13 / .5),0 0 28px rgb(14 16 13 / .35)}
+.hero .eyebrow{color:var(--ink)}
+.hero__island{margin:10px 0 0;font-family:var(--font-display);font-weight:400;font-size:clamp(64px,21vw,150px);line-height:.9;letter-spacing:.005em;text-transform:uppercase}
+.hero__project{margin:18px 0 0;padding-top:14px;border-top:1px solid rgb(238 234 229 / .4);font-size:clamp(18px,5vw,22px);font-weight:400;line-height:1.3}
+.hero__meta{margin:6px 0 0;font-size:13px;color:var(--ink-2)}
+
+.sections{position:relative;display:grid;gap:18px;max-width:760px;margin:0 auto;padding:0 var(--gutter) calc(40px + var(--safe-bottom))}
+.panel{min-width:0;padding:26px 22px 22px}
+
+.lines{margin:18px 0 0;padding:0;list-style:none}
+.lines > li{padding:14px 0;border-top:1px solid var(--hairline)}
+.lines > li:last-child{border-bottom:1px solid var(--hairline)}
+
+/* The three plans. */
+.plan{display:grid;grid-template-columns:1fr auto;gap:2px 16px;align-items:baseline}
+.plan__name{font-size:12px;color:var(--ink-3)}
+.plan__title{grid-column:1;font-size:17px;font-weight:500;margin:2px 0 0}
+.plan__sum{grid-column:2;grid-row:1 / span 2;font-family:var(--font-display);font-size:40px;line-height:1;letter-spacing:.01em;text-align:right}
+.plan__sum small{display:block;font-family:var(--font-ui);font-size:12px;color:var(--ink-3);letter-spacing:.01em}
+.plan__detail{grid-column:1 / -1;margin:6px 0 0;color:var(--ink-2);font-size:15px}
+
+/* Quiet controls: a chosen thing is shown with light, never a box. */
+.filters{display:grid;gap:14px;margin-top:18px}
+.filter{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 18px}
+.filter .label{width:52px}
+.filter button{border:0;background:none;padding:4px 0;font:inherit;font-size:15px;color:var(--ink-4);cursor:pointer;border-bottom:1px solid transparent;-webkit-tap-highlight-color:transparent}
+.filter button:hover{color:var(--ink-2)}
+.filter button[aria-pressed="true"]{color:var(--ink);border-bottom-color:rgb(238 234 229 / .6)}
+.count{margin:18px 0 0;font-size:12px;color:var(--ink-3)}
+
+.flight{display:grid;grid-template-columns:84px 1fr auto;gap:2px 16px;align-items:baseline}
+.flight__price{font-family:var(--font-display);font-size:30px;line-height:1;letter-spacing:.01em}
+.flight__main{min-width:0}
+.flight__line{font-size:15px}
+.flight__line b{font-weight:500}
+.flight__sub{font-size:13px;color:var(--ink-3)}
+.flight__note{font-size:12px;color:var(--cn-sand);margin-top:2px}
+.open{font-size:13px;color:var(--ink-2);text-decoration:none;border-bottom:1px solid var(--hairline);padding-bottom:1px;white-space:nowrap}
+.open:hover{color:var(--ink);border-bottom-color:var(--ink-2)}
+@media (max-width:560px){
+  .flight{grid-template-columns:1fr auto}
+  .flight__price{grid-column:1}
+  .flight .open{grid-column:2;grid-row:1}
+  .flight__main{grid-column:1 / -1;margin-top:6px}
+}
+
+/* Fields and the action, as Sail writes them. */
+.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 16px;margin-top:18px}
+.field .label{display:block;margin-bottom:6px}
+.field select,.field input{width:100%;min-height:44px;padding:0 12px;border:0;border-radius:2px;font:inherit;font-size:15px;color:var(--ink);background:rgb(195 185 175 / .08);box-shadow:inset 0 0 0 1px var(--hairline);color-scheme:dark}
+.field select option{background:var(--cn-ink)}
+.check{display:flex;align-items:center;gap:10px;font-size:15px;color:var(--ink-2);grid-column:1 / -1;cursor:pointer}
+.check input{accent-color:var(--cn-sand);width:16px;height:16px}
+.action{display:flex;align-items:center;justify-content:center;min-height:50px;margin-top:18px;padding:0 22px;border-radius:2px;font-size:15px;font-weight:500;letter-spacing:.02em;color:var(--ink-on-light);background:#eeeae5;text-decoration:none;box-shadow:0 12px 26px -16px rgb(8 10 8 / .7)}
+.action:hover{background:#fff}
+.action--quiet{background:none;color:var(--ink);box-shadow:inset 0 0 0 1px rgb(158 154 151 / .4)}
+.action--quiet:hover{background:rgb(195 185 175 / .08)}
+.actions{display:flex;gap:12px;flex-wrap:wrap}
+.actions .action{flex:1 1 220px}
+
+.frame{position:relative;margin:18px 0 0;border-radius:2px;overflow:hidden;aspect-ratio:3 / 2;background:rgb(195 185 175 / .07)}
+.frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+
+.figure{font-family:var(--font-display);font-size:clamp(72px,20vw,112px);line-height:.9;letter-spacing:.005em;margin:18px 0 0}
+.figure small{font-family:var(--font-ui);font-size:13px;color:var(--ink-3);letter-spacing:.01em;margin-left:8px}
+
+/* The best picks, first thing on the page. */
+/* The best picks: the first panel, straight under the title. */
+.best__head{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap}
+.best__head .display{margin-top:10px}
+.best__total{margin:0;font-family:var(--font-display);font-size:40px;line-height:1;letter-spacing:.01em;text-align:right}
+.best__total small{display:block;font-family:var(--font-ui);font-size:12px;color:var(--ink-3);letter-spacing:.01em;margin-top:4px}
+.best__basis{margin:12px 0 0;font-size:13px;color:var(--ink-3)}
+.best .filter{margin-top:18px}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:0 22px;margin-top:14px;border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline)}
+.pick{padding:16px 0;min-width:0}
+.pick + .pick{border-left:1px solid var(--hairline);padding-left:22px}
+.pick__who{font-size:12px;color:var(--ink-3)}
+.pick__price{font-family:var(--font-display);font-size:48px;line-height:1;margin:6px 0 2px;letter-spacing:.01em}
+.pick__bag{font-size:12px;color:var(--cn-sand);margin-bottom:8px}
+.pick__what{font-size:14px;font-weight:500}
+.pick__how{font-size:13px;color:var(--ink-3);margin-top:2px}
+.pick .open{display:inline-block;margin-top:12px}
+.best__note{margin:14px 0 0;font-size:14px;color:var(--ink-2)}
+@media (max-width:520px){.pair{grid-template-columns:1fr}.pick + .pick{border-left:0;padding-left:0;border-top:1px solid var(--hairline)}.best__total{text-align:left}}
+.hero{min-height:58svh;padding-bottom:28px}
+
+.sign{display:flex;flex-direction:column;align-items:center;gap:10px;padding:34px 0 10px}
+.sign span{display:block;width:150px;height:30px;background-color:var(--ink-2);-webkit-mask:url("assets/brand/wordmark.svg") center/contain no-repeat;mask:url("assets/brand/wordmark.svg") center/contain no-repeat}
+.sign p{margin:0;font-size:12px;color:var(--ink-4)}
+
+/* The date list: one row per window, the two of you side by side. */
+.window{padding:16px 0}
+.window__head{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.window__dates{font-size:15px;font-weight:500}
+.window__total{font-family:var(--font-display);font-size:28px;line-height:1}
+.window__total small{font-family:var(--font-ui);font-size:12px;color:var(--ink-3);margin-left:6px}
+.window__pair{display:grid;grid-template-columns:1fr 1fr;gap:12px 22px;margin-top:10px}
+.window__pair .open{display:inline-block;margin-top:6px}
+@media (max-width:520px){.window__pair{grid-template-columns:1fr}}
+.backdrop img{object-position:50% 60%}
+</style>
+
+</head>
+<body>
+<div class="backdrop" aria-hidden="true"><img src="assets/water.jpg" alt=""><div class="backdrop__veil"></div></div>
+
+<main class="page">
+  <header class="hero">
+    <div class="hero__text">
+      <p class="eyebrow">For Jacob and Damo</p>
+      <h1 class="hero__island">South Island</h1>
+      <p class="hero__project">Ten days hiking out of Queenstown. December, January or February, on cash or Velocity points.</p>
+    </div>
+  </header>
+
+  <div class="sections">
+    <section class="glass panel best" aria-label="Best flights for both of us">
+      <div class="best__head">
+        <div>
+          <p class="eyebrow">Best flights for both of us</p>
+          <h2 class="display">The pick</h2>
+        </div>
+        <p class="best__total" id="best-total"></p>
+      </div>
+      <p class="best__basis">Return flights to Queenstown, economy, per person, in AUD. Non-stop only, since it's barely dearer than going via Auckland. Google Flights prices from 11 Oct 2026, so they will move.</p>
+      <div class="filter" id="best-tabs"></div>
+      <div class="pair" id="best-pair"></div>
+      <p class="best__note" id="best-note"></p>
+    </section>
+
+    <section class="glass panel">
+      <p class="eyebrow">The short version</p>
+      <h2 class="display">Late January, both on Virgin</h2>
+      <p class="lede">Tue 26 January to Fri 5 February is the cheapest window we found: $1,351 for both, each of you non-stop from your own city on Virgin, so it can go on Velocity points too. Every window we checked came in between $1,350 and $1,600 for the pair, so pick on the hiking, not the fare.</p>
+      <ul class="lines">
+        <li class="plan">
+          <span class="plan__name">Cheapest</span>
+          <span class="plan__sum">$1,351<small>for both</small></span>
+          <span class="plan__title">26 Jan to 5 Feb</span>
+          <p class="plan__detail">Peak summer, longest days (light until about 9:30pm), busiest tracks.</p>
+        </li>
+        <li class="plan">
+          <span class="plan__name">Quieter, steadier weather</span>
+          <span class="plan__sum">$1,410<small>for both</small></span>
+          <span class="plan__title">23 Feb to 5 Mar</span>
+          <p class="plan__detail">Kids are back at school, the crowds thin out and the weather tends to settle. Both on Virgin non-stop.</p>
+        </li>
+        <li class="plan">
+          <span class="plan__name">Before Christmas</span>
+          <span class="plan__sum">$1,522<small>for both</small></span>
+          <span class="plan__title">8 to 18 Dec</span>
+          <p class="plan__detail">Early in the season and quiet. High alpine routes can still hold snow, so check DOC track alerts before you lock in a big day.</p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="glass panel">
+      <p class="eyebrow">Every window we checked</p>
+      <h2 class="display">The dates</h2>
+      <p class="text">Ten days each, return. Cheapest non-stop for each of you, plus what it would cost going via Auckland or Sydney if that's cheaper.</p>
+      <div class="filters">
+        <div class="filter" data-f="m"><span class="label">When</span>
+          <button aria-pressed="true" data-v="all">All</button><button aria-pressed="false" data-v="12">December</button><button aria-pressed="false" data-v="01">January</button><button aria-pressed="false" data-v="02">February</button></div>
+        <div class="filter" data-f="sort"><span class="label">Sort</span>
+          <button aria-pressed="true" data-v="date">By date</button><button aria-pressed="false" data-v="total">Cheapest</button></div>
+      </div>
+      <ul class="lines" id="rows"></ul>
+    </section>
+
+    <section class="glass panel">
+      <p class="eyebrow">Velocity points</p>
+      <h2 class="display">Worth using here</h2>
+      <p class="figure">17.9k<small>points one way, economy</small></p>
+      <p class="text">Virgin flies non-stop to Queenstown from both Brisbane and Melbourne, so it's a straight Velocity reward seat, no partner airline needed. Point Hacks puts it at about 17,900 points one way in economy (35,500 in business), plus taxes. That's roughly 35,800 return each.</p>
+      <ul class="lines">
+        <li>Against cash fares of $600 to $900 return, that's about 1.7 to 2.5 cents a point, which is a solid use of Velocity.</li>
+        <li>Business is about 71,000 return each and makes a three hour flight very comfortable, if the points are spare.</li>
+        <li>Reward seats are limited, especially late January. Search the exact dates in the Velocity app or on the Virgin site; seats.aero also tracks Velocity availability.</li>
+        <li>The points figure is from Point Hacks, not a live search, so confirm the price and taxes before you book.</li>
+      </ul>
+      <div class="actions">
+        <a class="action action--quiet" target="_blank" rel="noopener" href="https://experience.velocityfrequentflyer.com/">Velocity ↗</a>
+        <a class="action action--quiet" target="_blank" rel="noopener" href="https://seats.aero">seats.aero ↗</a>
+      </div>
+    </section>
+
+    <section class="glass panel">
+      <p class="eyebrow">The hiking</p>
+      <h2 class="display">What you can actually walk</h2>
+      <ul class="lines">
+        <li><strong>The Great Walks are mostly booked.</strong> The Milford Track sold out in 34 minutes when 2026/27 bookings opened in May. Routeburn and Kepler huts (NZ$132 a night for non-residents) were around 91 to 95% full last peak season, so expect them full in January and watch the DOC site for cancellations. December and late February give you a better shot.</li>
+        <li><strong>No booking needed:</strong> Roys Peak and Isthmus Peak near Wānaka (16 km, 5 to 7 hours, 1,200 m of climbing), Ben Lomond above Queenstown (6 to 8 hours, or less from the gondola), Rob Roy Glacier (3 to 4 hours), Key Summit on the Milford Road (about 3 hours), and Gertrude Saddle on a dry day (expert route).</li>
+        <li><strong>Mueller Hut at Mount Cook needs a booking</strong> from 11 November to 30 April (NZ$55 a night, no walk ins). Worth trying for, as it's one of the best overnights in the country.</li>
+        <li><strong>Base in Queenstown and hire a car.</strong> Wānaka is about an hour away, Te Anau and the Milford Road about two, Mount Cook about three.</li>
+        <li>Fiordland can rain heavily in any month, and the sandflies are always there. Pack for both.</li>
+      </ul>
+      <div class="actions">
+        <a class="action action--quiet" target="_blank" rel="noopener" href="https://www.doc.govt.nz/parks-and-recreation/things-to-do/walking-and-tramping/great-walks/">DOC Great Walks ↗</a>
+        <a class="action action--quiet" target="_blank" rel="noopener" href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/canterbury/places/aoraki-mount-cook-national-park/things-to-do/huts/mueller-hut/">Mueller Hut ↗</a>
+        <a class="action action--quiet" target="_blank" rel="noopener" href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/otago/places/wanaka-area/things-to-do/roys-peak-track/">Roys Peak ↗</a>
+      </div>
+    </section>
+
+    <section class="glass panel">
+      <p class="eyebrow">Your own dates</p>
+      <h2 class="display">Try another day</h2>
+      <div class="fields">
+        <label class="field"><span class="label">From</span>
+          <select id="b-from"><option value="BNE">Brisbane</option><option value="MEL">Melbourne</option></select></label>
+        <label class="field"><span class="label">To</span>
+          <select id="b-to"><option value="ZQN">Queenstown</option><option value="CHC">Christchurch</option></select></label>
+        <label class="field"><span class="label">Leave</span><input type="date" id="b-dep" value="2027-01-26" min="2026-10-12"></label>
+        <label class="field"><span class="label">Nights</span><input type="number" id="b-n" value="10" min="3" max="30" inputmode="numeric"></label>
+        <label class="check"><input type="checkbox" id="b-ns" checked> Non-stop only</label>
+      </div>
+      <a class="action" id="b-go" target="_blank" rel="noopener">Search Google Flights</a>
+      <p class="hint" id="b-note"></p>
+    </section>
+
+    <section class="glass panel">
+      <p class="eyebrow">Worth knowing</p>
+      <ul class="lines">
+        <li>Prices are Google Flights' lowest return fare on that route and dates, per person in economy. A starting price, not a quote.</li>
+        <li>The cheapest fares on Virgin, Qantas, Air New Zealand and Jetstar often leave out a checked bag. Check the fare type, and budget for one if you're bringing poles and a pack.</li>
+        <li>Christchurch is about $570 to $620 return from either city, but adds a long drive to Queenstown. Only worth it if Mount Cook or Arthur's Pass is the plan.</li>
+      </ul>
+    </section>
+
+    <footer class="sign"><span role="img" aria-label="Captain Nino"></span><p>Planned with Sail</p></footer>
+  </div>
+</main>
+
+<script>
+const gf=(from,to,dep,ret,ns)=>"https://www.google.com/travel/flights?q="+encodeURIComponent(`${ns?"Nonstop flights":"Flights"} from ${from} to ${to} on ${dep} through ${ret}`)+"&curr=AUD&hl=en-AU&gl=AU";
+const addDays=(iso,n)=>{const d=new Date(iso+"T00:00:00Z");d.setUTCDate(d.getUTCDate()+n);return d.toISOString().slice(0,10)};
+const fmt=iso=>new Date(iso+"T00:00:00Z").toLocaleDateString("en-AU",{weekday:"short",day:"numeric",month:"short",timeZone:"UTC"});
+
+// Each window: best non-stop for each, plus the cheapest fare of any kind.
+const W=[
+ {dep:"2026-12-01",j:{p:928,a:"Virgin Australia",t:"10:10am"},d:{p:734,a:"Qantas",t:"6:40am"},jc:{p:718,a:"Jetstar via Auckland"},dc:{p:721,a:"Air NZ via Auckland"}},
+ {dep:"2026-12-05",j:{p:756,a:"Virgin Australia",t:"12:05pm"},d:{p:828,a:"Qantas",t:"7:20am"},jc:{p:739,a:"Air NZ via Auckland"},dc:{p:727,a:"Air NZ via Auckland"}},
+ {dep:"2026-12-08",j:{p:888,a:"Virgin Australia",t:"10:10am"},d:{p:634,a:"Air New Zealand",t:"9:10am"},jc:{p:734,a:"Jetstar via Auckland"},dc:{p:616,a:"Virgin via Sydney"}},
+ {dep:"2027-01-16",j:{p:782,a:"Virgin Australia",t:"10:10am"},d:{p:617,a:"Jetstar",t:"2:50pm"},jc:{p:731,a:"Jetstar via Auckland"},dc:null},
+ {dep:"2027-01-19",j:{p:798,a:"Virgin Australia",t:"10:10am"},d:{p:598,a:"Virgin Australia",t:"8:00am"},jc:{p:718,a:"Jetstar via Auckland"},dc:null},
+ {dep:"2027-01-23",j:{p:768,a:"Virgin Australia",t:"10:10am"},d:{p:606,a:"Jetstar",t:"2:50pm"},jc:{p:729,a:"Jetstar via Auckland"},dc:null},
+ {dep:"2027-01-26",j:{p:756,a:"Virgin Australia",t:"10:10am"},d:{p:595,a:"Virgin Australia",t:"8:00am"},jc:{p:728,a:"Air NZ via Christchurch"},dc:null},
+ {dep:"2027-02-09",j:{p:791,a:"Virgin Australia",t:"10:10am"},d:{p:658,a:"Virgin Australia",t:"8:00am"},jc:{p:701,a:"Jetstar via Sydney"},dc:{p:603,a:"Jetstar via Sydney"}},
+ {dep:"2027-02-16",j:{p:756,a:"Virgin Australia",t:"10:10am"},d:{p:669,a:"Qantas",t:"6:40am"},jc:{p:701,a:"Jetstar via Sydney"},dc:{p:632,a:"Virgin via Sydney"}},
+ {dep:"2027-02-23",j:{p:779,a:"Virgin Australia",t:"10:10am"},d:{p:631,a:"Virgin Australia",t:"8:00am"},jc:{p:689,a:"Jetstar via Sydney"},dc:{p:585,a:"Jetstar via Auckland"}}
+].map(w=>({...w,ret:addDays(w.dep,10),total:w.j.p+w.d.p}));
+
+// The pick widget.
+const BEST=[
+ {tab:"Early Dec",i:1},{tab:"Mid Dec",i:2},{tab:"Mid Jan",i:4},{tab:"Late Jan",i:6},{tab:"Mid Feb",i:8},{tab:"Late Feb",i:9}
+];
+const PTS="Or about 35,800 Velocity points return, plus taxes";
+const tabs=document.getElementById("best-tabs");
+tabs.innerHTML=BEST.map((b,k)=>`<button aria-pressed="${k===3}" data-k="${k}">${b.tab}</button>`).join("");
+function showBest(k){
+  const w=W[BEST[k].i];
+  tabs.querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x.dataset.k==k));
+  document.getElementById("best-total").innerHTML=`$${w.total.toLocaleString()}<small>for both</small>`;
+  const pick=(who,city,code,p)=>`<div class="pick"><div class="pick__who">${who} · from ${city}</div><div class="pick__price">$${p.p.toLocaleString()}</div><div class="pick__bag">${p.a==="Virgin Australia"?PTS:"&nbsp;"}</div><div class="pick__what">${p.a} non-stop to Queenstown</div><div class="pick__how">Leaves ${p.t} · about 3 hours</div><a class="open" target="_blank" rel="noopener" href="${gf(code,"ZQN",w.dep,w.ret,true)}">Open flight ↗</a></div>`;
+  document.getElementById("best-pair").innerHTML=pick("Jacob","Brisbane","BNE",w.j)+pick("Damo","Melbourne","MEL",w.d);
+  document.getElementById("best-note").textContent=`${fmt(w.dep)} to ${fmt(w.ret)}.`+(w.j.a==="Virgin Australia"&&w.d.a==="Virgin Australia"?" Both on Virgin, so both can go on points.":"");
+}
+tabs.addEventListener("click",e=>{const t=e.target.closest("button");if(t)showBest(+t.dataset.k)});
+showBest(3);
+
+// The full list.
+const F={m:"all",sort:"date"};
+document.querySelectorAll(".filters .filter").forEach(g=>g.addEventListener("click",e=>{
+  const b=e.target.closest("button");if(!b)return;
+  g.querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x===b));
+  F[g.dataset.f]=b.dataset.v;render();
+}));
+function render(){
+  const rows=W.filter(w=>F.m==="all"||w.dep.slice(5,7)===F.m).slice().sort((a,b)=>F.sort==="total"?a.total-b.total:a.dep.localeCompare(b.dep));
+  const cheap=(c,p)=>c&&c.p<p.p?`<div class="flight__note">Or $${c.p} on ${c.a}</div>`:"";
+  document.getElementById("rows").innerHTML=rows.map(w=>`<li class="window">
+    <div class="window__head"><span class="window__dates">${fmt(w.dep)} to ${fmt(w.ret)}</span><span class="window__total">$${w.total.toLocaleString()}<small>both</small></span></div>
+    <div class="window__pair">
+      <div><div class="flight__sub">Jacob · ${w.j.a}</div><div class="flight__line"><b>$${w.j.p}</b> non-stop, ${w.j.t}</div>${cheap(w.jc,w.j)}<a class="open" target="_blank" rel="noopener" href="${gf("BNE","ZQN",w.dep,w.ret,true)}">Open ↗</a></div>
+      <div><div class="flight__sub">Damo · ${w.d.a}</div><div class="flight__line"><b>$${w.d.p}</b> non-stop, ${w.d.t}</div>${cheap(w.dc,w.d)}<a class="open" target="_blank" rel="noopener" href="${gf("MEL","ZQN",w.dep,w.ret,true)}">Open ↗</a></div>
+    </div></li>`).join("");
+}
+render();
+
+function build(){
+  const from=document.getElementById("b-from").value,to=document.getElementById("b-to").value,
+    dep=document.getElementById("b-dep").value,n=+document.getElementById("b-n").value||10,
+    ns=document.getElementById("b-ns").checked;
+  if(!dep)return;
+  const ret=addDays(dep,n);
+  document.getElementById("b-go").href=gf(from,to,dep,ret,ns);
+  document.getElementById("b-note").textContent=`${fmt(dep)} to ${fmt(ret)}, ${n} nights.`;
+}
+["b-from","b-to","b-dep","b-n","b-ns"].forEach(id=>document.getElementById(id).addEventListener("input",build));
+build();
+</script>
+</body>
+</html>
